@@ -28,9 +28,36 @@
         </tr>
       </thead>
       <tbody>
+<<<<<<< 4781f10c8dd5ea2a9cea12b249ec41bad6147a1e
         <%= render @users %>
       </tbody>
     </table>
+=======
+      <% @users.each do |user| %>
+        <tr>
+          <td><%= user.name %></td>
+          <td><%= user.email %></td>
+          <td><%= user.address %></td>
+          <td><%= user.phone %></td>
+          <td>
+            <% if user.active %>
+              <span class="status text-success"><%= t ".active" %></span>
+            <% else %>
+              <span class="status text-danger"><%= t ".inactive" %></span>
+            <% end %>
+          </td>
+          <td align="center">
+            <%= link_to user, method: :delete,
+              remote: true, data:{confirm: t(".sure")} do %>
+              <i class="fa fa-trash-o" aria-hidden="true"></i>
+            <% end %>
+          </td>
+        </tr>
+      <% end %>
+      </tbody>
+    </table>
+
+>>>>>>> admin_cate_products
   </div>
   <div class="panel-footer">
     <div class="row">

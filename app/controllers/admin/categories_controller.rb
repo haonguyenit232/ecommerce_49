@@ -30,7 +30,7 @@ module Admin
         flash[:success] = t "update_cate"
         redirect_to @category
       else
-        render :new
+        render :edit
       end
     end
 

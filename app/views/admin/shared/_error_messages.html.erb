@@ -1,12 +1,21 @@
 <% if object.errors.any? %>
   <div class="error_explanation">
     <div class="alert alert-danger">
+<<<<<<< 4781f10c8dd5ea2a9cea12b249ec41bad6147a1e
       <%= pluralize object.errors.size, t("users.new.form_err_msg2") %>
     </div>
     <ul>
       <% object.errors.full_messages.each do |msg| %>
         <li><%= msg %></li>
       <% end %>
+=======
+      The form contains <%= pluralize(object.errors.count, "error") %>.
+    </div>
+    <ul>
+    <% object.errors.full_messages.each do |msg| %>
+      <li><%= msg %></li>
+    <% end %>
+>>>>>>> admin_cate_products
     </ul>
   </div>
 <% end %>

@@ -188,12 +188,17 @@ en:
         page_title: "Categories"
         panel_title: "Show list Categories"
         name: "Name"
+<<<<<<< 4781f10c8dd5ea2a9cea12b249ec41bad6147a1e
         parent_category: "parent_category"
         status: "Status"
       category:
         sure: "You sure?"
       _form:
         button: "Create new cate"
+        parent_id: "Parent_id"
+        status: "Status"
+      category:
+        sure: "You sure?"
       new:
         page_title: "Categories"
         panel_title: "Add new cate"
