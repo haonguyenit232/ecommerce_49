@@ -20,4 +20,5 @@ Rails.application.routes.draw do
   end
   resources :categories
   resources :products
+  resources :ratings, only: %i(create update)
 end

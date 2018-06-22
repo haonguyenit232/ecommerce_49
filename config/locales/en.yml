@@ -22,6 +22,11 @@ en:
   image_size: "should be less than 5MB"
   sub_title: "Welcome to April"
   error_message: "Somethings wrong, please try again"
+  rating:
+    thanks_for_rating: "Thanks for your rating!"
+    retry: "Something went wrong, please try again!"
+    rating_not_found: "Rating not found"
+    product_not_found: "Product not found"
   users:
     index:
       title: "All users"

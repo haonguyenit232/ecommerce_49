@@ -54,4 +54,10 @@ class ProductsController < ApplicationController
     flash[:warning] = t ".oproduct_nil"
     redirect_to root_path
   end
+
+  def able_to_rating
+    return unless logged_in?
+    @rating = @current_user.ratings.find_by product_id: @product.id
+    @rating ||= Rating.new
+  end
 end

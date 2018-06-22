@@ -15,7 +15,7 @@ class OderDetailsController < ApplicationController
     if @oder_detail.update_attributes order_item_params
       @oder_details = @order.oder_details
     else
-    flash.now[:danger] = t "error_message"
+      flash.now[:danger] = t "error_message"
     end
   end
 
