@@ -1,0 +1,61 @@
+<%= form_for @order, html: {id: "form-order"} do |f| %>
+<div class="container">
+  <div class="col-md-6" id="checkout">
+    <div class="col-md-4">
+      <%= render "shared/error_messages", object: @order %>
+    </div>
+    <div class="box">
+      <h1><%= t "check_out" %></h1>
+      <div class="content">
+        <div class="row">
+          <div class="col-sm-12">
+            <div class="form-group">
+              <label for="name"><%= t ".name" %></label>
+              <%= f.text_field :name, class: "form-control" %>
+            </div>
+          </div>
+        </div>
+
+        <div class="row">
+          <div class="col-sm-6">
+            <div class="form-group">
+              <label for="phone"><%= t ".phone" %></label>
+              <%= f.text_field :phone, class: "form-control" %>
+            </div>
+          </div>
+          <div class="col-sm-6">
+            <div class="form-group">
+              <label for="address"><%= t ".address" %></label>
+              <%= f.text_field :address, class: "form-control" %>
+            </div>
+          </div>
+        </div>
+
+        <div class="row">
+          <div class="col-sm-12">
+            <div class="form-group">
+              <label for="note"><%= t ".note" %></label>
+              <%= f.text_area :note, class: "form-control" %>
+            </div>
+          </div>
+        </div>
+      </div>
+      <%= f.fields_for :oder_details do |order_detail| %>
+        <%= render "item_fields", f: order_detail %>
+      <% end %>
+      <%= f.hidden_field :total, value: total_cart %>
+      <div class="box-footer">
+        <div class="pull-left">
+          <a href="<%= carts_path %>" class="btn btn-default"><i class="fa fa-chevron-left"></i><%= t ".back_to_cart" %></a>
+        </div>
+        <div class="pull-right">
+          <button type="submit" class="btn btn-primary"><%= t "place_order" %><i class="fa fa-chevron-right"></i>
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+  <%= render "cart_review" %>
+
+</div>
+<% end %>

@@ -11,6 +11,10 @@ Rails.application.routes.draw do
   delete "/logout", to: "sessions#destroy"
   resources :users, except: %i(index)
   resources :categories
+  resources :carts, only: %(index)
+  resources :items
+  resources :oder_details
+  resources :orders
   resources :search_products, only: :index
   resources :products
   resource :cart, only: :show

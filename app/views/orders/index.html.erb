@@ -1,0 +1,9 @@
+<% if current_cart.present? && current_cart.size > 0 %>
+  <div class="container">
+    <%= render "form_order" %>
+  </div>
+<% else %>
+  <div class="alert alert-warning">
+    <%= t "order_empty" %> please go to <%= link_to t(".home"), root_path %>
+  </div>
+<% end %>

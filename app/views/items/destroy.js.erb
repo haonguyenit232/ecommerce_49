@@ -1,0 +1,5 @@
+$("#cart").html('<%= current_cart.size %> <%= t "item_cart" %>');
+$('.cart-item').bind('ajax:success', function(){
+  $(this).parents('tr:first') .remove();
+});
+$(".total").html('<%= total_cart %> VND');

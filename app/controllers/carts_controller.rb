@@ -1,5 +1,5 @@
 class CartsController < ApplicationController
-  def show
-    @oder_details = current_order.oder_details.sort
+  def index
+    @cart = current_cart
   end
 end
