@@ -40,7 +40,7 @@
           </div>
         </div>
       </div>
-      <%= f.fields_for :oder_details do |order_detail| %>
+      <%= f.fields_for :order_details do |order_detail| %>
         <%= render "item_fields", f: order_detail %>
       <% end %>
       <%= f.hidden_field :total, value: total_cart %>

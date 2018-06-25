@@ -3,6 +3,7 @@ class ApplicationController < ActionController::Base
   layout :admin_layout
 
   include SessionsHelper
+  include CartsHelper
 
   def check_valid? id
     redirect_to root_path unless id
