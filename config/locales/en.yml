@@ -221,3 +221,291 @@ en:
         find_category: "can't find category"
       load_category:
         find_category: "can't find category"
+
+
+  application:
+    must_login: "you have to login!"
+  static_pages:
+    home:
+      home: "Home"
+      sign_up: "Sign up now!"
+      welcome: "Welcome to Our Store"
+      hot_products: "HOT PRODUCTS"
+      lastest_products: "LASTEST PRODUCTS"
+  view_detail: "View detail"
+  add_to_cart: "Add to cart"
+  create_fail: "Create fail"
+  unit_price: "Unit price"
+  require_login: "Please login to continue"
+  item_cart: item(s) in cart
+  comment: "Comment"
+  search: "Search"
+  delete: "Delete"
+  update: "Update"
+  order_success: "Order success!"
+  error: "Error, please try again!"
+  order_empty: "Empty order!"
+  delete_fail: "Delete fail, please try again!"
+  update_fail: "Update fail, please try again!"
+  create_fail: "Create fail, please try again!"
+  confirm_delete: "Are you sure to delete?"
+  comment_placeholer: "Comment in here ..."
+  require_login_comment: "Please login to comment"
+  home: "Home"
+  update: "Update"
+  delete: "Delete"
+  comment_placeholer: "Comment in here ..."
+  require_login_comment: "Please login to comment"
+  home: "Home"
+  confirm_delete: "Are you sure to delete?"
+  comment_section: "Comment section"
+  sold_out: "Sold out"
+  product: "Products"
+  categories: "Categories"
+  add_to_wishlist: "Add to wishlist"
+  show_friends: "Show it to your friends"
+  same_product: "You may also like these products"
+  detail_product: "Detail product"
+  cant_find_product: "Cannot find product"
+  orders:
+    index:
+      product: "Product"
+      name: "Name"
+      phone: "Phone"
+      note: "Note"
+      address: "Address"
+      quantity: "Quantity"
+      unit_price: "Unit price"
+  carts:
+    index:
+      empty_cart: "Your cart empty!"
+      checkout: "Check out"
+      continue_shopping: "Continue shopping"
+      title: "Shopping Cart"
+  static_pages:
+    home:
+      home: "Home"
+      sign_up: "Sign up now!"
+      welcome: "Welcome to Our Store"
+      hot_products: "HOT PRODUCTS"
+      lastest_products: "LASTEST PRODUCTS"
+  layouts:
+    header:
+      login: "Login"
+      logout: "Log out"
+      register: "Register"
+      home: "Home"
+      account: "Account"
+      customer_login: "Customer login"
+      not_registered_yet?: "Not registered yet?"
+      register_now: "Register now"
+      it_is_easy: "! It is easy and done in 1&nbsp;minute and gives you access to special discounts and much more!"
+      logout: "Log out"
+      banner: "Welcome to My Shoping Cart"
+      admin: "Admin"
+    footer:
+      pages: "Pages"
+      about: "About us"
+      term: "Terms and conditions"
+      faq: "FAQ"
+      contact: "Contact us"
+      pages: "User section"
+      login: "Login"
+      register: "Register"
+      where_to_find: "Where to find us"
+      framgia_human: "Framgia Human Development."
+      contact_page: "Go to contact page"
+      subscribe : "Subscribe!"
+      stay_in_touch: "Stay in touch"
+      copyright: "© 2018 Framgia"
+  ratings:
+    rating_form:
+      require_login: "Please login to rate product"
+    new:
+      rating_average: "Product Star Rating Average:"
+      star_10: "Awesome - 10 stars"
+      star_9: "Pretty good - 9 stars"
+      star_8: "Pretty good - 8 stars"
+      star_7: "Meh - 7 stars"
+      star_6: "Meh - 6 stars"
+      star_5: "Kinda bad - 5 stars"
+      star_4: "Kinda bad - 4 stars"
+      star_3: "Meh - 3 stars"
+      star_2: "Sucks big time - 2 star"
+      star_1: "Sucks big time - 1 stars"
+    create:
+      success: "Thank you for rating!"
+      error: "something wrong!"
+    old:
+      your_score: "Your rated score:"
+      rating_average: "Product Star Rating Average!:"
+  sessions:
+    new:
+      signin: "Sign in"
+      home: "Home"
+      heading: "Sign in"
+      login: "Login"
+      has_account: "Already our customer?"
+      logged_in: "You're already logged in!"
+      remember_me: "Remember me on this computer"
+    create:
+      activate_message: "Account not activated. Check your email for the activation link."
+      activate_fail: "Invalid email/password combination"
+  shared:
+    error_messages:
+      message: "The form contains"
+      error: "error"
+  users:
+    new:
+      signup: "Sign up"
+      home: "Home"
+      heading: "New account"
+      new_account: "New account"
+      not_has_account: "Not our registered customer yet?"
+      register: "Register"
+    create:
+      check_mail: "Please check your email to activate your account."
+      account_activation: "Account activation"
+    show:
+      must_login: "Please log in"
+  products:
+    show:
+      must_login: "login to add to wishlist"
+  favourites:
+    favor:
+      action_button: "Add to wishlist"
+    create:
+      success: "Success! You added this product into your wishlist"
+      error:  "Sorry! You can't add this product from wishlist."
+    unfavor:
+      action_button: "Remove frome wishlist"
+    destroy:
+      success: "Success removed!"
+      error:  "Sorry! You can't remove this product from wishlist."
+  account_activations:
+    success: "Account activated!"
+    invalid: "Invalid activation link"
+  user_mailer:
+    activate: "Activate"
+    hi: "Hi"
+    welcome: "Welcome to the Shop! Click on the link below to activate your account:"
+  items:
+    create:
+      added: "added product to cart!"
+  admin:
+    layouts:
+      header:
+        admin: "ADMIN"
+        admin_mail: "admin@framgia.com"
+        profile: "Profile"
+        go_to_shop: "Go to shop"
+        settings: "Settings"
+        logout: "Logout"
+      navbar:
+        home: "HOME"
+        dashboard: "Dashboard"
+        user: "User"
+        category: "Category"
+        product: "Product"
+        list: "List"
+        create: "Create"
+    static_pages:
+      home:
+        dashboard: "Dashboard"
+        user: "User"
+        category: "Category"
+        product: "Product"
+    users:
+      index:
+        page_title: "Users"
+        panel_title: "Show list Users"
+        name: "Name"
+        email: "Email"
+        address: "Address"
+        phone: "Phone"
+        activated: "Activated"
+        active: "• Active"
+        inactive: "• Inactive"
+        sure: "You sure?"
+    products:
+      index:
+        page_title: "Products"
+        panel_title: "Show list Products"
+        name: "Name"
+        price: "Price"
+        quantity: "Quantity"
+        status: "Status"
+        rating: "Rating"
+        category: "Category"
+        provider: "Provider"
+      product:
+        sure: "You sure?"
+      new:
+        page_title: "Products"
+        panel_title: "Edit product"
+        button: "Create"
+        min_size_image: "should be less than 1MB"
+        over_size: "Maximum file size is 1MB. Please choose a smaller file."
+        add_image: "Add image"
+        not_empty: "cannot be empty"
+      create:
+        create_fail: "some thing fails!"
+        success: "create success!"
+      image_fields:
+        remove: "remove img"
+      edit:
+        page_title: "Products"
+        panel_title: "Add new product"
+        button: "Edit"
+        add_image: "Add image"
+        not_empty: "cannot be empty"
+      update:
+        create_fail: "some thing fails!"
+        success: "update success!"
+    categories:
+      index:
+        page_title: "Categories"
+        panel_title: "Show list Categories"
+        name: "Name"
+        priority: "Priority"
+        status: "Status"
+      category:
+        sure: "You sure?"
+      new:
+        page_title: "Categories"
+        panel_title: "Add new cate"
+        button: "Create new cate"
+      create:
+        fail: "some thing fails!"
+        success: "create success!"
+      edit:
+        page_title: "Categories"
+        panel_title: "Add new cate"
+        button: "Edit cate"
+        find_category: "can't find category"
+      update:
+        fail: "some thing fails!"
+        success: "update success!"
+        find_category: "can't find category"
+      destroy:
+        fail: "some thing fails!"
+        success: "delete success!"
+        find_category: "can't find category"
+      load_category:
+        find_category: "can't find category"
+  views:
+    pagination:
+      first: "&laquo; First"
+      last: "Last &raquo;"
+      previous: "&lsaquo; Prev"
+      next: "Next &rsaquo;"
+      truncate: "&hellip;"
+  helpers:
+    page_entries_info:
+      one_page:
+        display_entries:
+          zero: "No %{entry_name} found"
+          one: "Displaying <b>1</b> %{entry_name}"
+          other: "Displaying <b>all %{count}</b> %{entry_name}"
+      more_pages:
+        display_entries: "Displaying %{entry_name} <b>%{first}&nbsp;-&nbsp;%{last}</b> of <b>%{total}</b> in total"
