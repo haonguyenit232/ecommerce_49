@@ -1,5 +1,6 @@
 class ProductsController < ApplicationController
   before_action :load_product, only: %i(show)
+  after_action :load_comments, only: %i(show)
 
   def index
     @products = Product.order_price.paginate page: params[:page], per_page: Settings.product_per_page
@@ -14,5 +15,11 @@ class ProductsController < ApplicationController
     return if @product
     flash[:warning] = t ".oproduct_nil"
     redirect_to root_path
+  end
+
+  def load_comments
+    @comments = @product.comments
+      .page(params[:page]).per(Settings.paginate.comment_perpage)
+    @comment = current_user.comments.build if logged_in?
   end
 end

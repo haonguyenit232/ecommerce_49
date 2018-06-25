@@ -12,9 +12,11 @@ Rails.application.routes.draw do
   resources :users, except: %i(index)
   resources :categories
   resources :search_products, only: :index
-  resources :products
   resource :cart, only: :show
   resources :oder_details, only: %i(create update destroy)
+  resources :products do
+    resources :comments
+  end
   namespace :admin do
     root "users#index"
     resources :users, except: %i(show)
