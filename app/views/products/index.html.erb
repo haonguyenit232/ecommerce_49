@@ -1,5 +1,17 @@
-<div class="row">
-  <div class="products-wrap d-flex">
-    <%= render partial: "product_row", collection: @products, locals: {order_detail: @order_detail}, as: :product %>
+<div id="all">
+  <div id="content">
+    <div class="container">
+    <% if @products.present? %>
+      <div class="col-md-9">
+        <div class="row products">
+            <%= render @products %>
+        </div>
+        <%= will_paginate @products %>
+      </div>
+    <% end %>
+      <div class="col-md-3">
+        <%= render "shared/right_sidebar" %>
+      </div>
+    </div>
   </div>
 </div>

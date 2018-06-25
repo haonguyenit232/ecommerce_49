@@ -14,16 +14,16 @@
           <tbody class="table-cart">
             <% current_cart.each do |item_cart| %>
               <tr>
-                <td><%= item_cart["name"] %></td>
+                <td><%= item_cart["title"] %></td>
                 <td><%= item_cart["quantity"] %></td>
-                <td><%= total_price_item item_cart["price"], item_cart["quantity"] %> VND</td>
+                <td><%= total_price_item item_cart["price"], item_cart["quantity"] %></td>
               </tr>
             <% end %>
           </tbody>
           <tfoot>
             <tr>
               <th colspan="5"><%= t ".total" %></th>
-              <th><%= total_cart %> VND</th>
+              <th><%= total_cart %></th>
             </tr>
           </tfoot>
         </table>

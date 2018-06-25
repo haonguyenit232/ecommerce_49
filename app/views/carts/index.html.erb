@@ -3,7 +3,7 @@
     <div class="container">
       <div class="col-md-12" id="basket">
         <div class="box">
-          <h1><%= t ".title" %></h1>
+          <h1><%= t "titlecart" %></h1>
           <% if current_cart.present? %>
           <div class="table-responsive">
             <table class="table">
@@ -21,7 +21,7 @@
               <tfoot>
                 <tr>
                   <th colspan="5"><%= t "total" %></th>
-                  <th class="total"><%= total_cart %></th>
+                  <th class="total"><%= total_cart %> VND</th>
                 </tr>
               </tfoot>
             </table>

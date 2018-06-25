@@ -13,6 +13,7 @@
             </div>
             <div class="col-sm-7">
               <h3 class="product-title"><%= @product.title %></h3>
+              <h4 class="product-title"><%= number_to_currency @product.price %></h4>
               <p class="product-des">
                 <%= @product.description %>
               </p>

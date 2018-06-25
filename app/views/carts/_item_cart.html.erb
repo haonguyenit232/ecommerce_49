@@ -1,5 +1,5 @@
 <tr>
-  <td><%= link_to item["name"], product_path(id: item["product_id"]) %></td>
+  <td><%= link_to item["title"], product_path(id: item["product_id"]) %></td>
   <td>
     <input type="hidden" value="<%= item["product_id"] %>", class = "product_id_update" %>
     <input class="quantity" type="number" value="<%= item["quantity"]%>" min="1" />

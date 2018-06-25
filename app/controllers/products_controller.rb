@@ -12,7 +12,7 @@ class ProductsController < ApplicationController
   def load_product
     @product = Product.find_by id: params[:id]
     return if @product
-    flash[:warning] = t ".oproduct_nil"
+    flash[:warning] = t ".product_nil"
     redirect_to root_path
   end
 end

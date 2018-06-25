@@ -33,26 +33,6 @@ max_image_size: 1
 cart_size: 1
 min_size: 0
 
-
-
-user:
-  name:
-    max_length: 50
-  email:
-    max_length: 50
-  phone:
-    max_length: 12
-  date_of_birth:
-    max_length: 10
-  password:
-    min_length: 6
-  password:
-    min_length: 6
-  address:
-    max_length: 255
-comment:
-  min_length: 1
-  max_length: 255
 product:
   name:
     max_length: 100
@@ -75,8 +55,6 @@ admin:
 cart:
   item_id_default: 1
   default_quantity: 1
-rating:
-  point: !ruby/range 1..10
 category:
   name:
     max_length: 30
