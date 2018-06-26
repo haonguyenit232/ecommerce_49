@@ -1,0 +1,15 @@
+<tr>
+  <td><%= link_to item["name"], product_path(id: item["product_id"]) %></td>
+  <td>
+    <input type="hidden" value="<%= item["product_id"] %>", class = "product_id_update" %>
+    <input class="quantity" type="number" value="<%= item["quantity"]%>" min=<%= Settings.min %> />
+  </td>
+  <td><%= item["price"] %></td>
+  <td class="item-<%= item["product_id"] %>"><%= total_price_item item["price"],  item["quantity"] %></td>
+  <td>
+    <%= link_to t("delete"), item_path(id: item["product_id"],
+      product_id: item["product_id"]), data: {confirm: t("confirm_delete") + "'#{item["name"]}'"},
+      method: :delete, remote: true, class: "btn btn-danger cart-item" %>
+  </td>
+</tr>
+
