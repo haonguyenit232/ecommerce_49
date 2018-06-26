@@ -10,11 +10,13 @@ Rails.application.routes.draw do
   post "/login", to: "sessions#create"
   delete "/logout", to: "sessions#destroy"
   resources :users, except: %i(index)
+  resources :carts, only: %(index)
+  resources :items
+  resources :order_details
+  resources :orders
   resources :categories
   resources :search_products, only: :index
   resources :products
-  resource :cart, only: :show
-  resources :oder_details, only: %i(create update destroy)
   namespace :admin do
     root "users#index"
     resources :users, except: %i(show)

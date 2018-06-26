@@ -1,7 +1,7 @@
 class Product < ApplicationRecord
   belongs_to :category
-  has_many :oder_details
-  has_many :orders, through: :oder_details
+  has_many :order_details
+  has_many :orders, through: :order_details
   has_many :ratings
   has_many :comments
 

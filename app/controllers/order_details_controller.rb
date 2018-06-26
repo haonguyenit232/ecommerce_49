@@ -1,4 +1,4 @@
-class OderDetailsController < ApplicationController
+class OrderDetailsController < ApplicationController
   before_action :load_order, only: %i(update destroy)
 
   def create

@@ -30,19 +30,23 @@ ActiveRecord::Schema.define(version: 20180618030405) do
     t.index ["user_id"], name: "index_comments_on_user_id"
   end
 
-  create_table "oder_details", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
+  create_table "order_details", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.integer "quantity"
     t.decimal "price", precision: 10
     t.bigint "product_id"
     t.bigint "order_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.index ["order_id"], name: "index_oder_details_on_order_id"
-    t.index ["product_id"], name: "index_oder_details_on_product_id"
+    t.index ["order_id"], name: "index_order_details_on_order_id"
+    t.index ["product_id"], name: "index_order_details_on_product_id"
   end
 
   create_table "orders", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.string "name"
+    t.string "phone"
+    t.string "address"
+    t.string "note"
+    t.integer "total", default: 0
     t.integer "status", default: 0, null: false
     t.bigint "user_id"
     t.datetime "created_at", null: false
@@ -55,6 +59,7 @@ ActiveRecord::Schema.define(version: 20180618030405) do
     t.decimal "price", precision: 8, scale: 2
     t.text "description"
     t.integer "quantity"
+    t.integer "status"
     t.string "image"
     t.bigint "category_id"
     t.datetime "created_at", null: false
@@ -97,8 +102,8 @@ ActiveRecord::Schema.define(version: 20180618030405) do
     t.string "password_digest"
   end
 
-  add_foreign_key "oder_details", "orders"
-  add_foreign_key "oder_details", "products"
+  add_foreign_key "order_details", "orders"
+  add_foreign_key "order_details", "products"
   add_foreign_key "ratings", "products"
   add_foreign_key "ratings", "users"
 end

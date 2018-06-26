@@ -31,18 +31,18 @@ module SessionsHelper
     cookies.delete :remember_token
   end
 
-  def current_order
-    if session[:order_id].present?
-      @orders = Order.find_by id: session[:order_id]
-      @order.nil? ? Order.new : @order
-    else
-      Order.new
-    end
-  end
-
   def log_out
     forget current_user
     session.delete :user_id
     @current_user = nil
+  end
+
+  def redirect_back_or default
+    redirect_to(session[:forwarding_url] || default)
+    session.delete :forwarding_url
+  end
+
+  def store_location
+    session[:forwarding_url] = request.original_url if request.get?
   end
 end
