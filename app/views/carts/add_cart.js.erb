@@ -1,0 +1,12 @@
+<% if @product.present? %>
+  $(".cart_link").attr("href", "<%= carts_path %>");
+  swal("<%= t '.alert_success' %>");
+  $("#number_product_cart").html("<%= session[:cart].size %>");
+  $("#number_product_cart").removeClass("hidden");
+<% else %>
+  swal(
+    "<%= t 'shared.error_messages.oops' %>",
+    "<%= t '.alert_fail' %>",
+    "<%= t 'shared.error_messages.error' %>"
+  )
+<% end %>

@@ -1,5 +1,6 @@
 en:
   hello: "Hello world"
+  name: "Name"
   logout: "Logout"
   add_to_card: "Add to card"
   account: "Account"
@@ -7,6 +8,14 @@ en:
   home: "Home"
   parent_category: "Parent_category"
   category: "Category"
+  currency:
+    format: "$ %{price}"
+  shared:
+    error_messages:
+      contains_error: "The form contain"
+      error: "error"
+      oops: "Oops...."
+      cart_empty: "Your cart is empty!"
   product: "Product"
   user: "User"
   shop: "Shop"
@@ -27,6 +36,54 @@ en:
   image_size: "should be less than 5MB"
   sub_title: "Welcome to April"
   error_message: "Somethings wrong, please try again"
+  carts:
+    cart_item:
+      currency: "$%{price}"
+      image_alt: "Edit Entry"
+    index:
+      currency: "$%{price}"
+      cart: "Cart"
+      product: "Product"
+      price: "Price"
+      quantity: "Quantity"
+      subtotal: "Subtotal"
+      total: "Total: "
+      continue_shopping: "Continue Shopping"
+      checkout: "Checkout"
+      login_required: "You must login to be continue."
+    update_hard_cart:
+      validate_quantity_fail: "Not enough quantity."
+      validate_quantity_is_zero: "So luong khong duoc la 0"
+    remove_cart:
+      error: "Error occurs!"
+    add_cart:
+      alert_success: "The product has been added to cart."
+      alert_fail: "Error occurs!"
+  order_items:
+    index:
+      invoice: "Invoice"
+      client_info: "CLIENT INFORMATION"
+      name: "Name : "
+      address: "Address : "
+      city: "City : "
+      country: "Country : "
+      call: "Call : "
+      code: "+84."
+      payment_details: "PAYMENT DETAILS"
+      bill_amount: "Bill Amount : "
+      purchase_date: "Purchase Date : "
+      no_number: "No."
+      items: "Items"
+      quantity: "Quantity"
+      unit_price: "Unit Price"
+      sub_total: "Sub Total"
+      total_amount: "Total Amount : "
+      back: "Back"
+      continue_shopping: "Continue Shopping"
+      cancle_order: "Cancle Order"
+      currency: "$ %{price}"
+    order_item:
+      currency: "$ %{price}"
   users:
     index:
       title: "All users"
@@ -216,3 +273,5 @@ en:
         find_category: "can't find category"
       load_category:
         find_category: "can't find category"
+
+

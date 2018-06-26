@@ -14,3 +14,15 @@ product_per_page: 10
 max_image_size: 1
 cart_size: 1
 min_size: 0
+quantity:
+  default: 1
+  zero: 0
+image:
+  size: "50x50"
+product_title:
+  length: 15
+description:
+  length: 20
+quantity:
+  default: 1
+  zero: 0

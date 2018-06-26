@@ -1,0 +1,17 @@
+<article class="product-item-wrap col-md-4 col-sm-6">
+  <div class="product-item-inner">
+    <div class="product-thumb">
+      <a href="#">
+        <%= image_tag("product-53.jpg", class: "product-image") %>
+      </a>
+    </div>
+    <div class="product-info">
+      <h4 class="product-title"><%= product.name %></h4>
+      <span class="price"><%= number_to_currency product.price %></span>
+    </div>
+    <div class="product-action">
+     <%= link_to t("add_to_card"), add_cart_path(product), remote: true,
+     method: :get, class: "btn-accent add-to-card" %>
+   </div>
+ </div>
+</article>

@@ -1,47 +1,28 @@
-<div id="all">
-  <div id="content">
-    <div class="container">
-      <div class="col-md-12" id="basket">
-        <div class="box">
-          <h1><%= t ".title" %></h1>
-          <% if current_cart.present? %>
-          <div class="table-responsive">
-            <table class="table">
-              <thead>
-                <tr>
-                  <th><%= t "product" %></th>
-                  <th><%= t "quantity" %></th>
-                  <th><%= t "unit_price" %></th>
-                  <th><%= t "total" %></th>
-                </tr>
-              </thead>
-              <tbody class="cart">
-                <%= render "cart" %>
-              </tbody>
-              <tfoot>
-                <tr>
-                  <th colspan="5"><%= t "total" %></th>
-                  <th class="total"><%= total_cart %></th>
-                </tr>
-              </tfoot>
-            </table>
-          </div>
-          <div class="box-footer">
-            <div class="pull-left">
-              <a href="<%= root_path %>" class="btn btn-default"><i class="fa fa-chevron-left"></i><%= t ".continue_shopping" %></a>
-            </div>
-            <div class="pull-right">
-              <button class="btn btn-default"><i class="fa fa-trash-o"></i><%= t".delete_cart" %> </button>
-              <%= link_to t(".checkout"), orders_path, class: "btn btn-primary" %>
-            </div>
-          </div>
-          <% else %>
-          <div class="alert alert-warning">
-            <%= t".empty_cart" %>
-         </div>
-         <% end %>
-       </div>
-     </div>
-   </div>
- </div>
-</div>
+<table id="cart" class="table table-hover table-condensed">
+  <thead>
+    <tr>
+      <th class="w-50"><%= t ".product" %></th>
+      <th class="w-10"><%= t ".price" %></th>
+      <th class="w-8"><%= t ".quantity" %></th>
+      <th class="w-22 text-center"><%= t ".subtotal" %></th>
+      <th class="w-10"></th>
+    </tr>
+  </thead>
+  <tbody>
+      <%= render partial: "cart_item", collection: @producs_of_current_cart, as: :product %>
+  </tbody>
+  <tfoot>
+    <tr>
+      <td>
+        <%= link_to products_path, class: "btn btn-warning" do %>
+          <i class="fa fa-angle-left"></i> <%= t ".continue_shopping" %>
+        <% end %>
+      </td>
+      <td colspan="2" class="hidden-xs"></td>
+      <td class="total_price">
+        <span><%= t ".total" %></span>
+          <%= t "currency.format", price: sum_total_price_of_cart.sum %>
+      </td>
+    </tr>
+  </tfoot>
+</table>
