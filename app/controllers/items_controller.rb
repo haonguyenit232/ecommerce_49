@@ -24,6 +24,7 @@ class ItemsController < ApplicationController
   end
 
   def update
+    byebug
     index = session[:cart].find_index{|e| e["product_id"] == params[:id]}
     quantity_update = params["quantity"].to_i
     session[:cart][index]["quantity"] = quantity_update

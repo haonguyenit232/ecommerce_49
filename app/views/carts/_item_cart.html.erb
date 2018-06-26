@@ -4,13 +4,13 @@
     <input type="hidden" value="<%= item["product_id"] %>", class = "product_id_update" %>
     <input class="quantity" type="number" value="<%= item["quantity"]%>" min="1" />
   </td>
-  <td><%= item["price"] %> VND</td>
-  <td class="item-<%= item["product_id"] %>"><%= total_price_item item["price"],  item["quantity"] %> VND</td>
+  <td><%= item["price"] %></td>
+  <td class="item-<%= item["product_id"] %>"><%= total_price_item item["price"],  item["quantity"] %></td>
   <td>
     <%= link_to t("delete"), item_path(id: item["product_id"], product_id: item["product_id"]), data: {confirm: t("confirm_delete") + "'#{item["name"]}'"}, method: :delete, remote: true, class: "btn btn-danger cart-item" %>
   </td>
   <td>
-    <%= link_to "update", item_path(id: item["product_id"], product_id: item["product_id"]), data: {confirm: t("confirm_delete") + "'#{item["name"]}'"}, method: :delete, remote: true, class: "btn btn-danger cart-item" %>
+    <%= link_to "update", item_path(id: item["product_id"], product_id: item["product_id"]), data: {confirm: t("confirm_delete") + "'#{item["name"]}'"}, remote: true, class: "btn btn-danger cart-item" %>
   </td>
 </tr>
 
