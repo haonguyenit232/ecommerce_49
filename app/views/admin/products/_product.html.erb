@@ -1,7 +1,9 @@
 <tr id="product-<%= product.id %>">
+  <td class="product-image-small"><%= image_tag product.image.url %></td>
   <td><%= product.title %></td>
   <td><%= number_to_currency product.price %></td>
   <td><%= product.quantity %></td>
+  <td><%= product.category_name %></td>
   <td align="center">
     <%= link_to edit_admin_product_path product do %>
       <i class="fa fa-pencil" aria-hidden="true"></i>

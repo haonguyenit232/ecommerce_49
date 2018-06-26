@@ -13,4 +13,32 @@
       </ul>
     </div>
   </li>
+  <li>
+    <h4 class="sub-menu">
+      <a data-toggle="collapse" href="#cate">
+        <%= t "category" %>
+        <i class="fa fa-angle-down"></i>
+      </a>
+    </h4>
+    <div class="collapse" id="cate">
+      <ul class="closed">
+        <li><%= link_to t("categories.all_cate"), admin_categories_path %></li>
+        <li><%= link_to t("categories.add_cate"), new_admin_category_path %></li>
+      </ul>
+    </div>
+  </li>
+  <li>
+    <h4 class="sub-menu">
+      <a data-toggle="collapse" href="#product">
+        <%= t "product" %>
+        <i class="fa fa-angle-down"></i>
+      </a>
+    </h4>
+    <div class="collapse" id="product">
+      <ul class="closed">
+        <li><%= link_to t("products.all_products"), admin_products_path %></li>
+        <li><%= link_to t("products.add_new"), new_admin_product_path %></li>
+      </ul>
+    </div>
+  </li>
 </ul>

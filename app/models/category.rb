@@ -4,7 +4,6 @@ class Category < ApplicationRecord
   has_one :parent, class_name: Category.name, primary_key: :parent_category, foreign_key: :id
 
   validates :name, presence: true, length: {maximum: Settings.category_max}
-  validates :parent_category, presence: true
 
   scope :order_name, ->{order name: :asc}
 end

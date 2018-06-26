@@ -1,6 +1,10 @@
 <tr id="category-<%= category.id %>">
   <td><%= category.name %></td>
-  <td><%= category.parent_category %></td>
+  <td>
+    <% if category.parent.present? %>
+      <%= category.parent.name %>
+    <% end %>
+  </td>
   <td align="center">
     <%= link_to edit_admin_category_path(category) do %>
       <i class="fa fa-pencil" aria-hidden="true"></i>

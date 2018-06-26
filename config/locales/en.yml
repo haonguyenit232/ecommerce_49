@@ -12,6 +12,7 @@ en:
   shop: "Shop"
   update: "Update"
   sub_title: "Welcome to April"
+  product_image: "Image"
   title: "April"
   search_holder: "Search Products"
   search_empty: "Product not found, please try asgain !"
@@ -61,6 +62,8 @@ en:
       user_deleted_msg: "User deleted"
       user_delete_err_msg: "Are you trying to delete the void?"
   categories:
+    all_cate: "All category"
+    add_cate: "Add new category"
     index:
       delete: "Delete"
       edit: "edit"
@@ -72,16 +75,11 @@ en:
       cate_nil: "Caterory not found"
   sessions:
     new:
-      title: "Log in"
       content1: "Don't have an account? "
       signup: "Sign up now"
-  sessions:
-    new:
       title: "Log in"
-      header: "Log in"
       submit_btn: "Log in"
       content1: "New user? "
-      link1: "Sign up now!"
       label_email: "Email"
       label_password: "Password"
       remember_content: "Remember me on this computer"
@@ -96,6 +94,8 @@ en:
     create_product: "Product was successfully created."
     update_product: "Product was successfully update."
   products:
+    all_product: "All products"
+    add_new: "Add product"
     index:
       title: "All users"
       delete: "Delete"

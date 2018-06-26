@@ -18,7 +18,7 @@ module Admin
     def create
       @product = Product.new product_params
       if @product.save
-        flash[:info] = t "create_product"
+        flash[:info] = t "admin.create_product"
         redirect_to @product
       else
         render :new
@@ -27,8 +27,8 @@ module Admin
 
     def update
       if @product.update_attributes product_params
-        flash[:success] = t "update_product"
-        redirect_to @product
+        flash[:success] = t "admin.update_product"
+        redirect_to admin_products_path
       else
         render :edit
       end
@@ -40,7 +40,7 @@ module Admin
       else
         flash[:danger] = t ".product_delete_err_msg"
       end
-      redirect_to products_path
+      redirect_to admin_products_path
     end
 
     private

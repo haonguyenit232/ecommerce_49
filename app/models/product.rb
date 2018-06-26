@@ -5,6 +5,8 @@ class Product < ApplicationRecord
   has_many :ratings
   has_many :comments
 
+  delegate :name, to: :category, prefix: :category
+
   mount_uploader :image, PictureUploader
   validates :title, presence: true
   validates :price, presence: true

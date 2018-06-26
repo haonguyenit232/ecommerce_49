@@ -19,7 +19,7 @@ module Admin
       @category = Category.new category_params
       if @category.save
         flash[:info] = t "create_cate"
-        redirect_to @category
+        redirect_to admin_categories_path
       else
         render :new
       end
@@ -40,7 +40,7 @@ module Admin
       else
         flash[:danger] = t ".category_delete_err_msg"
       end
-      redirect_to categories_path
+      redirect_to admin_categories_path
     end
 
     private
@@ -53,7 +53,6 @@ module Admin
       @category = Category.find_by id: params[:id]
       return if @category
       flash[:warning] = t ".cate_nil"
-      redirect_to root_path
     end
   end
 end

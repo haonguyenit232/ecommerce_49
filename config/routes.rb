@@ -19,7 +19,7 @@ Rails.application.routes.draw do
   resources :products
   namespace :admin do
     root "users#index"
-    resources :users, except: %i(show)
+    resources :users
     resources :categories do
       resources :products
     end

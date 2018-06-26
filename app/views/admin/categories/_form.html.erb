@@ -5,8 +5,9 @@
   </div>
 
   <div class="form-group">
-    <%= f.label :parent_category, t(".label_parent") %>
-    <%= f.text_field :parent_category, class: "form-control" %>
+    <%= f.label :parent_category %>
+    <%= f.collection_select :parent_category, Category.order_name, :id, :name,
+      {prompt: true}, {class: "form-control"} %>
   </div>
 
   <%= f.submit yield(:button), class: "btn btn-primary" %>
