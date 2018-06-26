@@ -14,6 +14,7 @@ en:
   order_empty: "Empty order!"
   user: "User"
   shop: "Shop"
+  item_cart: item(s) in cart
   home: "Home"
   update: "Update"
   sub_title: "Welcome to April"
@@ -226,6 +227,8 @@ en:
         find_category: "can't find category"
       load_category:
         find_category: "can't find category"
-
+  items:
+    create:
+      added: "added product to cart!"
 
 
