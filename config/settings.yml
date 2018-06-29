@@ -35,3 +35,8 @@ rating:
   point: !ruby/range 1..5
 comment:
   max_length: 500
+statuses:
+  cancelled: "cancelled"
+  in_progress: "in_progress"
+  rejected: "rejected"
+  approved: "approved"

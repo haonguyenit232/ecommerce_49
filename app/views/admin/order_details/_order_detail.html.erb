@@ -2,5 +2,5 @@
   <td><%= create_index_row params[:page], order_detail_counter, Settings.product_per_page %></td>
   <td><%= order_detail.product_name %></td>
   <td><%= order_detail.quantity %></td>
-  <td><%= number_to_currency order_detail.price %></td>
+  <td><%= number_to_currency order_detail.unit_price %></td>
 </tr>

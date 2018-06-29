@@ -5,9 +5,20 @@
   <td><%= order.phone %></td>
   <td><%= l order.created_at, format: t("date.format.date_time") %></td>
   <td><%= number_to_currency order.total %></td>
+  <td  class="<%= add_cus_css order.status %>">
+    <strong>
+      <%= t "order.status.#{order.status}" %>
+    </strong>
+  </td>
   <td>
     <%= link_to order_order_details_path(current_user, order), class: "btn btn-primary" do %>
-      <i class="fa fa-eye"></i>&nbsp; Oderdetails
+      <i class="fa fa-eye"></i>&nbsp;<%= t ".oderdetails" %>
+    <% end %>
+    <% if order.in_progress? %>
+      <%= link_to cancel_path(order.id), remote: true, method: :put,
+        class: "btn btn-danger" do %>
+        <i class="fa fa-trash-o"></i>&nbsp;<%= t ".cancel" %>
+      <% end %>
     <% end %>
   </td>
 </tr>

@@ -1,5 +1,6 @@
 class OrdersController < ApplicationController
-  before_action :load_orders, only: :index
+  before_action :find_order, only: :cancel
+  before_action :load_orders, only: %i(cancel index)
   before_action :check_cart_empty, only: :create
   before_action :current_cart, :quantity_in_cart, only: %i(new create)
   before_action :logged_in_user, only: :new
@@ -26,6 +27,16 @@ class OrdersController < ApplicationController
     render :new
   end
 
+  def cancel
+    @order.cancelled!
+    OrderMailer.cancel_order(current_user, @order).deliver_now
+    rollback_quantity @order
+    respond_to do |format|
+      format.json {}
+      format.js {}
+    end
+  end
+
   private
 
   def order_params
@@ -35,6 +46,17 @@ class OrdersController < ApplicationController
   def redirect_if_cart_empty
     flash[:danger] = t "empty_cart"
     redirect_to carts_path
+  end
+
+  def find_order
+    @order = Order.find_by id: params[:id_order]
+    valid_object @order
+  end
+
+  def rollback_quantity order
+    order.order_details.each do |detail|
+      detail.product.increment!(:quantity, detail.quantity) if detail.persisted?
+    end
   end
 
   def load_orders
