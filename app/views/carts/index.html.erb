@@ -1,3 +1,4 @@
+<h1><%= t "shopping_cart" %></h1>
 <table id="cart" class="table table-hover table-condensed">
   <thead>
     <tr>
@@ -14,14 +15,18 @@
   <tfoot>
     <tr>
       <td>
-        <%= link_to products_path, class: "btn btn-warning" do %>
+        <%= link_to products_path, class: "btn-accent add-to-card" do %>
           <i class="fa fa-angle-left"></i> <%= t ".continue_shopping" %>
         <% end %>
       </td>
-      <td colspan="2" class="hidden-xs"></td>
+      <% unless session[:cart].size > Settings.quantity.zero %>
+        <td colspan="2" class="hidden-xs">There are no items in this cart</td>
+      <% end %>
       <td class="total_price">
-        <span><%= t ".total" %></span>
+        <% unless session[:cart].empty? || session[:cart].size == Settings.quantity.zero %>
+          <span><%= t ".total" %></span>
           <%= number_to_currency sum_total_price_of_cart %>
+        <% end %>
       </td>
       <td>
         <% unless session[:cart].empty? || session[:cart].size == Settings.quantity.zero %>

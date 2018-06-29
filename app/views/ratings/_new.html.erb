@@ -7,8 +7,13 @@
     authenticity_token: true do |f| %>
     <fieldset class="rating">
     <% 5.times do |x| %>
+<<<<<<< 888dcd5dbcd4d36e2a16eb4d978013e4d4d7f560
       <%= f.radio_button :starts, x, class: "star-#{x}" %>
       <label for="rating_starts_<%= x %>"></label>
+=======
+      <%= f.radio_button :starts, 5-x %>
+      <label for="rating_starts_<%= 5-x %>" title="<%= t "ratings.new.star_#{5-x}" %>"><%= t "ratings.new.star_#{5-x}" %></label>
+>>>>>>> Comment
     <% end %>
     </fieldset>
     <%= f.submit t("button_rate"), id: "submit-rating", class: "btn btn-primary" %>

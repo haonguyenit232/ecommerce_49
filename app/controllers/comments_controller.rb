@@ -61,8 +61,11 @@ class CommentsController < ApplicationController
     @comment = @product.comments.find_by id: params[:id]
     valid_object unless @comment
   end
+<<<<<<< 888dcd5dbcd4d36e2a16eb4d978013e4d4d7f560
 
   def load_comment_reply
     @reply_to =  params[:comment_id]
   end
+=======
+>>>>>>> Comment
 end

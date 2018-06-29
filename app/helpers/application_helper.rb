@@ -8,4 +8,17 @@ module ApplicationHelper
     params_page = Settings.cart_size if params_page.nil?
     (params_page.to_i - Settings.cart_size) * per_page.to_i + index.to_i + Settings.cart_size
   end
+
+  def add_cus_css status
+    case status
+    when Settings.statuses.cancelled
+      Settings.warning
+    when Settings.statuses.rejected
+      Settings.danger
+    when Settings.statuses.approved
+      Settings.success
+    else
+      Settings.light
+    end
+  end
 end

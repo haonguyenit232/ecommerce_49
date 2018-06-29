@@ -1,0 +1,6 @@
+en:
+  date:
+    format:
+      default: "%d/%m/%Y"
+  order_mailer:
+    subject: "Ecommerce49: Order Status Alert"
