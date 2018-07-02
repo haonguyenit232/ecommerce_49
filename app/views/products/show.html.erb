@@ -49,18 +49,16 @@
                   <li><a href="#" class="fa fa-pinterest"></a></li>
                 </ul>
               </div>
-              <% if logged_in? %>
-                <%= render partial: "comments/form" %>
-              <% else %>
-                <%= link_to t("require_login_comment"), login_path, class: "btn btn-warning" %>
-              <% end %>
-            </div>
-          </div>
-          <div class="box" id="comments">
-            <h4><%= t "comment_section" %></h4>
-            <hr>
-            <div class="media comment-product">
-              <%= render @product.comments %>
+              <div class="single-product-content justify-content-center d-flex">
+                <div class="col-md-12">
+                  <div class="product-rating">
+                    <h3 class="product-section-title"><%= t "button_rate" %></h3>
+                    <div class="prodduct-rating">
+                      <%= render partial: "ratings/rating_form" %>
+                    </div>
+                  </div>
+                </div>
+              </div>
             </div>
           </div>
           <div class="box" id="comments">
@@ -76,16 +74,6 @@
               <% else %>
                 <%= link_to t("require_login_comment"), login_path, remote: true, class: "btn btn-warning" %>
               <% end %>
-            </div>
-          </div>
-          <div class="single-product-content justify-content-center d-flex">
-            <div class="col-md-12">
-              <div class="product-rating">
-                <h3 class="product-section-title"><%= t "button_rate" %></h3>
-                <div class="prodduct-rating">
-                  <%= render partial: "ratings/rating_form" %>
-                </div>
-              </div>
             </div>
           </div>
         </div>
