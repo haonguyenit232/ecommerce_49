@@ -22,6 +22,7 @@ Rails.application.routes.draw do
       end
     end
   end
+
   namespace :admin do
     root "static_pages#home"
     resources :users

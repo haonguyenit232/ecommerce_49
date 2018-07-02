@@ -28,13 +28,18 @@ class OrdersController < ApplicationController
   end
 
   def cancel
-    @order.cancelled!
-    OrderMailer.cancel_order(current_user, @order).deliver_now
-    rollback_quantity @order
-    respond_to do |format|
-      format.json {}
-      format.js {}
+    ActiveRecord::Base.transaction do
+      @order.cancelled!
+      UserMailer.cancel_order(current_user, @order).deliver_now
+      rollback_quantity @order
+      respond_to do |format|
+        format.json {}
+        format.js {}
+      end
     end
+  rescue
+    flash[:danger] = "cancel_failed"
+    render :index
   end
 
   private

@@ -40,3 +40,7 @@ statuses:
   in_progress: "in_progress"
   rejected: "rejected"
   approved: "approved"
+danger: "bg-danger"
+light: "bg-primary"
+warning: "bg-warning"
+success: "bg-success"
