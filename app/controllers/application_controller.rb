@@ -21,12 +21,9 @@ class ApplicationController < ActionController::Base
     redirect_to login_path
   end
 
-  def admin_layout
-    if logged_in? && current_user.admin?
-      Settings.admin_layout
-    else
-      Settings.app_layout
-    end
+  def is_admin
+    return if logged_in? && current_user.admin?
+    redirect_to root_path
   end
 
   def current_cart
