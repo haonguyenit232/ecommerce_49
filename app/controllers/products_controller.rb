@@ -2,6 +2,8 @@ class ProductsController < ApplicationController
   before_action :load_product, only: :show
   before_action :load_products, only: :filter_product
   after_action :load_comments, only: :show
+  authorize_resource
+
 
   def index
     @products = Product.order_price
@@ -11,7 +13,7 @@ class ProductsController < ApplicationController
 
   def show
     @rating = current_user.ratings.find_by product_id: @product.id if
-      logged_in? && current_user.rating?(@product)
+      user_signed_in? && current_user.rating?(@product)
   end
 
   def filter_product; end
@@ -39,6 +41,6 @@ class ProductsController < ApplicationController
   def load_comments
     @comments = @product.comments.includes(:users)
       .paginate page: params[:page], per_page: Settings.paginate.comment_perpage
-    @comment = current_user.comments.build if logged_in?
+    @comment = current_user.comments.build if user_signed_in?
   end
 end

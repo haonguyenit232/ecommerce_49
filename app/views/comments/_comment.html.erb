@@ -3,13 +3,13 @@
     <div class="media-left">
       <h4 class="media-heading"><%= comment.user_name %></h4>
       <div class="option-comment">
-      <% if logged_in? && can_edit_comment?(comment) %>
+      <% if user_signed_in? && can_edit_comment?(comment) %>
         <%= link_to t("edit"), edit_product_comment_path(comment.product, comment),
           class: "btn btn-link", remote: true %>
         <%= link_to t("delete"), product_comment_path(comment.product, comment),
           class: "btn btn-link", remote: true, method: :delete, data: {confirm: t("confirm_delete")} %>
       <% end %>
-      <% if logged_in? %>
+      <% if user_signed_in? %>
         <%= link_to t("reply_text"), new_product_comment_path(comment.product, comment_id: comment.id), remote: true, class: "btn btn-link" %>
       <% end %>
     </div>

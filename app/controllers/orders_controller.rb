@@ -3,7 +3,8 @@ class OrdersController < ApplicationController
   before_action :load_orders, only: %i(cancel index)
   before_action :check_cart_empty, only: :create
   before_action :current_cart, :quantity_in_cart, only: %i(new create)
-  before_action :logged_in_user
+  before_action :authenticate_user!
+  authorize_resource
 
   include OrdersHelper
 

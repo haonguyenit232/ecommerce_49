@@ -20,6 +20,8 @@ gem "rubocop", "~> 0.49.1", require: false
 gem "sass-rails", "~> 5.0"
 gem "uglifier", ">= 1.3.0"
 gem "carrierwave", "1.2.2"
+gem "devise"
+gem "cancancan", "~> 2.0"
 gem "mini_magick", "4.7.0"
 gem "config"
 gem "will_paginate", "3.1.6"

@@ -1,5 +1,5 @@
 <div id="product-rating">
-  <% if logged_in? %>
+  <% if user_signed_in? %>
     <% if current_user.rating? @product %>
       <%= render "ratings/old" %>
     <% else %>

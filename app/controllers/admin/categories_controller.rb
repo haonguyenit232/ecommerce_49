@@ -2,6 +2,7 @@ module Admin
   class CategoriesController < AdminController
     before_action :load_category, except: %i(index create new)
     before_action :check_parent, only: :update
+    authorize_resource
 
     def index
       @categories = Category.includes(:subcategories)
