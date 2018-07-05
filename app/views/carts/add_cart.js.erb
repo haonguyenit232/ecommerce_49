@@ -1,7 +1,5 @@
 $('.shopping-cart').html('<%= escape_javascript(render 'layouts/cart_text') %>');
 <% if @product.present? %>
-  alert('<%= t 'alert_success' %>')
   $('#number_product_cart').html('<%= session[:cart].size %>')
 <% else %>
-  alert('<%= t 'alert_fail' %>')
 <% end %>

@@ -1,7 +1,6 @@
 module Admin
   class ProductsController < AdminController
     before_action :load_product, except: %i(index create new)
-    authorize_resource
 
     def index
       @products = Product.includes(:category)
@@ -58,7 +57,7 @@ module Admin
     end
 
     def load_categories
-      @categories = Category.order_name :desc
+      @categories = Category.order_name
     end
   end
 end

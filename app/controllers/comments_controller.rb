@@ -2,6 +2,7 @@ class CommentsController < ApplicationController
   before_action :load_product
   before_action :load_comment, only: %i(edit update destroy)
   before_action :load_comment_reply, only: :new
+  before_action :authenticate_user!
 
   def new; end
 
@@ -61,11 +62,8 @@ class CommentsController < ApplicationController
     @comment = @product.comments.find_by id: params[:id]
     valid_object unless @comment
   end
-<<<<<<< 888dcd5dbcd4d36e2a16eb4d978013e4d4d7f560
 
   def load_comment_reply
     @reply_to =  params[:comment_id]
   end
-=======
->>>>>>> Comment
 end

@@ -2,7 +2,6 @@ class ProductsController < ApplicationController
   before_action :load_product, only: :show
   before_action :load_products, only: :filter_product
   after_action :load_comments, only: :show
-  authorize_resource
 
 
   def index

@@ -1,5 +1,6 @@
 class ApplicationController < ActionController::Base
   protect_from_forgery with: :exception
+  before_action :search
 
   include CartsHelper
 
@@ -15,7 +16,16 @@ class ApplicationController < ActionController::Base
     redirect_to root_path unless id
   end
 
+  def search
+    @search = Product.search params[:q]
+  end
+
   private
+
+  def is_admin
+    return if user_signed_in? && current_user.admin?
+    redirect_to root_path
+  end
 
   def current_cart
     @producs_of_current_cart = Product.load_product_by_ids session[:cart].keys

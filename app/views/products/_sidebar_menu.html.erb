@@ -3,7 +3,7 @@
   <%= form_tag({controller: "products", action: "filter_product"}, remote: true,  method: "get") do %>
     <%= select_tag :sort_by, options_for_select([[t("sort_name_asc"), "asc"],
       [t("sort_name_desc"), "desc"]]) %>
-    <%= submit_tag t("submit_btn"), name: nil, class: "btn btn-primary" %>
+    <%= submit_tag t("submit_btn"), name: nil, class: "btn btn-danger" %>
   <% end %>
 </div>
 
@@ -22,6 +22,6 @@
     <%= hidden_field :price_min, :value %>
     <%= hidden_field :price_max, :value %>
     <p class= "price-ranger"></p>
-    <%= submit_tag t("submit_btn"), name: nil, class: "btn btn-primary" %>
+    <%= submit_tag t("submit_btn"), name: nil, class: "btn btn-danger" %>
   <% end %>
 </div>

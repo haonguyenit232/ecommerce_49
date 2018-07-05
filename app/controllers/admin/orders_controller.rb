@@ -1,7 +1,6 @@
 module Admin
   class OrdersController < AdminController
     before_action :load_order, only: :update
-    authorize_resource
 
     def index
       @orders = Order.status(params[:status])

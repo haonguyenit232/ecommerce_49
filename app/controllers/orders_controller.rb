@@ -3,8 +3,7 @@ class OrdersController < ApplicationController
   before_action :load_orders, only: %i(cancel index)
   before_action :check_cart_empty, only: :create
   before_action :current_cart, :quantity_in_cart, only: %i(new create)
-  before_action :authenticate_user!
-  authorize_resource
+  before_action :authenticate_user!, expect: %(edit destroy)
 
   include OrdersHelper
 
@@ -29,18 +28,13 @@ class OrdersController < ApplicationController
   end
 
   def cancel
-    ActiveRecord::Base.transaction do
-      @order.cancelled!
-      UserMailer.cancel_order(current_user, @order).deliver_now
-      rollback_quantity @order
-      respond_to do |format|
-        format.json {}
-        format.js {}
-      end
+    @order.cancelled!
+    UserMailer.cancel_order(current_user, @order).deliver_now
+    rollback_quantity @order
+    respond_to do |format|
+      format.json {}
+      format.js {}
     end
-  rescue
-    flash[:danger] = "cancel_failed"
-    render :index
   end
 
   private

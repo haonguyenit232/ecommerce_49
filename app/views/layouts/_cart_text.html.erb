@@ -1,5 +1,5 @@
 <div class="navbar-collapse collapse right" id="basket-overview">
-  <%= link_to carts_path, class: "btn btn-primary navbar-btn" do %>
+  <%= link_to carts_path, class: "btn btn-info navbar-btn" do %>
     <span class="badge" id="number_product_cart">
     <i class="fa fa-shopping-cart"></i>
       <%= session[:cart].size unless is_empty_cart? %>

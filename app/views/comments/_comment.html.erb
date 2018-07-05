@@ -1,28 +1,33 @@
 <% if comment.user.present? && comment.parent.nil? %>
-  <div id="comment-<%= comment.id %>">
-    <div class="media-left">
-      <h4 class="media-heading"><%= comment.user_name %></h4>
-      <div class="option-comment">
-      <% if user_signed_in? && can_edit_comment?(comment) %>
-        <%= link_to t("edit"), edit_product_comment_path(comment.product, comment),
-          class: "btn btn-link", remote: true %>
-        <%= link_to t("delete"), product_comment_path(comment.product, comment),
-          class: "btn btn-link", remote: true, method: :delete, data: {confirm: t("confirm_delete")} %>
-      <% end %>
-      <% if user_signed_in? %>
-        <%= link_to t("reply_text"), new_product_comment_path(comment.product, comment_id: comment.id), remote: true, class: "btn btn-link" %>
-      <% end %>
-    </div>
-    </div>
-    <div class="comment-<%= comment.id %>">
-      <p class="comment-content"><%= comment.content %></p>
-      <% if comment.reply_comments.present? %>
-        <div class="reply-content">
-          <%= render partial: "comments/subcomment", collection: comment.reply_comments, as: :comment %>
+  <div class="ps-review">
+    <div id="comment-<%= comment.id %>">
+      <div class="ps-review__thumbnail">
+        <%= image_tag "user/1.jpg" %>
+      </div>
+      <div class="ps-review__content">
+        <p class="media-heading"><%= comment.user_name %> - <%= time_ago_in_words comment.created_at %> <%= t "ago" %></p>
+        <div class="comment-<%= comment.id %>">
+          <p class="comment-content"><%= comment.content %></p>
+            <div class="option-comment">
+              <% if user_signed_in? && can_edit_comment?(comment) %>
+                <%= link_to t("edit"), edit_product_comment_path(comment.product, comment),
+                  class: "btn btn-link", remote: true %>
+                <%= link_to t("delete"), product_comment_path(comment.product, comment),
+                  class: "btn btn-link", remote: true, method: :delete, data: {confirm: t("confirm_delete")} %>
+              <% end %>
+              <% if user_signed_in? %>
+                <%= link_to t("reply_text"), new_product_comment_path(comment.product, comment_id: comment.id), remote: true, class: "btn btn-link" %>
+              <% end %>
+            </div>
+          <% if comment.reply_comments.present? %>
+            <div class="reply-content">
+              <%= render partial: "comments/subcomment", collection: comment.reply_comments, as: :comment %>
+            </div>
+          <% end %>
+          <hr>
         </div>
-      <% end %>
-      <hr>
+        <div id="reply-form-<%= comment.id %>"></div>
+      </div>
     </div>
-    <div id="reply-form-<%= comment.id %>"></div>
   </div>
 <% end %>

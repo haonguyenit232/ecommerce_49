@@ -1,5 +1,5 @@
-<%= form_tag search_products_path, method: :get do %>
-  <%= text_field_tag :query, params[:query],
+<%= search_form_for @search do |f| %>
+  <%= f.text_field :name_cont,
     class: "search-query form-control", placeholder: t("search_holder") %>
   <button type="submit" class="submit-btn"><i class="fa fa-search"></i></button>
 <% end %>

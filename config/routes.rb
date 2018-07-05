@@ -1,14 +1,11 @@
 Rails.application.routes.draw do
-
-
   get "products/index"
   get "products/show"
-
   root "static_pages#home"
   get "/fetch_items", to: "products#filter_product", as: "fetch_items"
   resources :search_products, only: :index
   resources :categories
-  devise_for :users, :controllers => {registrations: "registrations"}
+  devise_for :users
   resources :products, only: %i(index show) do
     resources :comments
     resources :ratings, only: :create

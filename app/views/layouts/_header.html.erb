@@ -21,9 +21,9 @@
           </ul>
         </li>
         <% else %>
-          <li><%= link_to t("sessions.new.title"), new_user_session_path, remote: true %></li>
+          <li><%= link_to t("sessions.new.title"), new_user_session_path %></li>
         <% end %>
-        <li class="search-form form-inline">
+        <li class="search-form">
           <%= render "layouts/search" %>
         </li>
         <li class="shopping-cart cart-text"><%= render "layouts/cart_text" %></li>

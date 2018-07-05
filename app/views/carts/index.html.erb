@@ -3,6 +3,7 @@
   <thead>
     <tr>
       <th class="w-50"><%= t ".product" %></th>
+      <th class="w-10"><%= t ".image" %></th>
       <th class="w-10"><%= t ".price" %></th>
       <th class="w-8"><%= t ".quantity" %></th>
       <th class="w-22 text-center"><%= t ".subtotal" %></th>
@@ -10,7 +11,7 @@
     </tr>
   </thead>
   <tbody>
-      <%= render partial: "cart_item", collection: @producs_of_current_cart, as: :product %>
+    <%= render partial: "cart_item", collection: @producs_of_current_cart, as: :product %>
   </tbody>
   <tfoot>
     <tr>
@@ -19,18 +20,21 @@
           <i class="fa fa-angle-left"></i> <%= t ".continue_shopping" %>
         <% end %>
       </td>
-      <% unless session[:cart].size > Settings.quantity.zero %>
-        <td colspan="2" class="hidden-xs">There are no items in this cart</td>
-      <% end %>
+      <td>
+        <% unless session[:cart].size > Settings.quantity.zero %>
+          <span style= "color: red;" colspan="2" class="hidden-xs">There are no items in this cart</span>
+        <% end %>
+      </td>
       <td class="total_price">
         <% unless session[:cart].empty? || session[:cart].size == Settings.quantity.zero %>
           <span><%= t ".total" %></span>
           <%= number_to_currency sum_total_price_of_cart %>
         <% end %>
       </td>
+      <td></td>
       <td>
         <% unless session[:cart].empty? || session[:cart].size == Settings.quantity.zero %>
-          <%= link_to new_order_path(current_user), class: "btn btn-success" do %>
+          <%= link_to new_order_path(current_user), class: "btn btn-danger" do %>
             <%= t ".checkout" %> <i class="fa fa-angle-right"></i>
           <% end %>
         <% end %>

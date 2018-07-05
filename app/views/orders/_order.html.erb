@@ -11,7 +11,7 @@
     </strong>
   </td>
   <td>
-    <%= link_to order_order_details_path(current_user, order), class: "btn btn-primary" do %>
+    <%= link_to order_order_details_path(order), class: "btn btn-primary" do %>
       <i class="fa fa-eye"></i>&nbsp;<%= t ".oderdetails" %>
     <% end %>
     <% if order.in_progress? %>

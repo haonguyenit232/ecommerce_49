@@ -1,5 +1,5 @@
 class RatingsController < ApplicationController
-  authorize_resource
+  before_action :authenticate_user!
 
   def create
     if Product.exists? params[:product_id]
