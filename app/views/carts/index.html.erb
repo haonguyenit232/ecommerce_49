@@ -2,7 +2,7 @@
 <table id="cart" class="table table-hover table-condensed">
   <thead>
     <tr>
-      <th class="w-50"><%= t ".product" %></th>
+      <th class="w-50"><%= t ".name" %></th>
       <th class="w-10"><%= t ".image" %></th>
       <th class="w-10"><%= t ".price" %></th>
       <th class="w-8"><%= t ".quantity" %></th>
@@ -25,9 +25,10 @@
           <span style= "color: red;" colspan="2" class="hidden-xs">There are no items in this cart</span>
         <% end %>
       </td>
+      <td></td>
       <td class="total_price">
         <% unless session[:cart].empty? || session[:cart].size == Settings.quantity.zero %>
-          <span><%= t ".total" %></span>
+          <span style= "font-weight: bold;"><%= t ".total" %></span>
           <%= number_to_currency sum_total_price_of_cart %>
         <% end %>
       </td>
