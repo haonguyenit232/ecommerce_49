@@ -19,3 +19,13 @@
     <span class="sr-only">Next</span>
   </a>
 </div>
+
+<marquee direction="up" style= "text-align: center; padding-top: 50px; color: red; font-weight: bold; font-family: sans-serif; font-size: 50px;"><%= t "product_hot" %></marquee>
+
+<div class="products-wrapper row">
+  <div class="products-wrap d-flex col-md-10">
+    <% if @hot_products.present? %>
+      <%= render partial: "products/product", collection: @hot_products %>
+    <% end %>
+  </div>
+</div>

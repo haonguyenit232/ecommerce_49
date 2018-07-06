@@ -21,6 +21,7 @@ module ApplicationHelper
       Settings.light
     end
   end
+
   def check_active_controller(con_name)
     con_name.each do |con|
       if con == controller_name

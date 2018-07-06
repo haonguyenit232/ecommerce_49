@@ -40,3 +40,7 @@ statuses:
   approved: "approved"
 rating:
   point: !ruby/range 1..5
+product:
+  limit: 4
+home:
+  limit: 3

@@ -1,5 +1,5 @@
 <% if check_active_action(['index']) %>
-   <% if check_active_controller(['products']) &&  %>
+  <% if check_active_controller(['products']) %>
     <%= search_form_for @q do |f| %>
       <%= f.text_field :name_cont,
         class: "search-query form-control", placeholder: t("search_holder") %>

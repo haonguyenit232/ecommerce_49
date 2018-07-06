@@ -8,8 +8,8 @@ Devise.setup do |config|
   # confirmation, reset password and unlock tokens in the database.
   # Devise will use the `secret_key_base` as its `secret_key`
   # by default. You can change it below and use your own secret key.
-  # config.secret_key = '9dce4b58783b78efc017268bd30abecf68b498da17bdb6c129b3088193d283cdfe65115af89ee3f649739d7028c34fd7dffda309374ee07182d0a1fb4b4e8d58'
-  config.omniauth :facebook, ENV["APP_ID"], ENV["APP_SECRET"]
+  #config.secret_key = '9dce4b58783b78efc017268bd30abecf68b498da17bdb6c129b3088193d283cdfe65115af89ee3f649739d7028c34fd7dffda309374ee07182d0a1fb4b4e8d58'
+
   # ==> Controller configuration
   # Configure the parent class to the devise controllers.
   # config.parent_controller = 'DeviseController'
@@ -254,6 +254,7 @@ Devise.setup do |config|
   config.sign_out_via = :delete
 
   # ==> OmniAuth
+  require 'omniauth-facebook'
   config.omniauth :facebook, ENV['FB_APP_ID'], ENV['FB_APP_SECRET']
   # Add a new OmniAuth provider. Check the wiki for more information on setting
   # up on your models and hooks.

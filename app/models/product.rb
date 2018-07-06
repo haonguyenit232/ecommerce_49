@@ -15,13 +15,21 @@ class Product < ApplicationRecord
   validates :description, presence: true, length: {maximum: Settings.description_max}
   validate  :picture_size
 
-  #scope :starts_with, ->(name){where "name like ?", "%#{name}%"}
   scope :order_price, ->{order(price: :desc)}
   scope :load_product_by_ids, ->(product_ids){where id: product_ids}
   scope :order_name, ->(order){order(name: order)}
   scope :min_max_price, ->(min, max){where("price >= ? AND price <= ?", min, max)}
   scope :by_category, ->(cate_ids){where category_id: cate_ids if cate_ids}
   scope :newest, ->{order(create_at: :desc)}
+
+  def self.hot_product_by_month month
+    product_ide = "SELECT `order_details`.`product_id`
+                   FROM order_details
+                   WHERE (order_details.created_at >= DATE_SUB(CURRENT_DATE(),INTERVAL " + month.to_s + " MONTH))
+                   GROUP BY `order_details`.`product_id`
+                   ORDER BY sum(order_details.quantity) DESC"
+    Product.where("id IN (#{product_ide})").limit(Settings.product.limit)
+  end
 
   private
 

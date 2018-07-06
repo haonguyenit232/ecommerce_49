@@ -5,11 +5,6 @@
         <div class="box">
           <div class="content-wrap">
             <h1><%= t ".login" %></h1>
-
-            <%- if devise_mapping.omniauthable? %>
-              <%= link_to "login facebook", user_facebook_omniauth_authorize_path %>
-            <% end -%>
-
             <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
             <%= f.email_field :email, autofocus: true, autocomplete: "email", placeholder: t("users.new.label_email"),  class: "form-control"  %> </br>
 
