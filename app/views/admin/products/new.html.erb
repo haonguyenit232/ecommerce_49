@@ -35,7 +35,7 @@
 
         <div class="form-group mg-left-20">
           <%= f.label :category_id %>
-          <%= f.collection_select :category_id, @categories, :id, :name,
+          <%= f.collection_select :category_id, Category.order(:name), :id, :name,
             {prompt: true}, {class: "form-control"} %>
         </div>
       </div>

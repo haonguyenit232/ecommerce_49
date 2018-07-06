@@ -1,6 +1,6 @@
 module Admin
   class UsersController < AdminController
-    before_action :load_user, only: %i(update destroy show)
+    before_action :load_user, only: {:update, :destroy, :show}
 
     def index
       @users = User.newest.paginate page: params[:page], per_page: Settings.user_per_page

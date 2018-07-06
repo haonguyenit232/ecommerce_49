@@ -5,7 +5,9 @@ Rails.application.routes.draw do
   get "/fetch_items", to: "products#filter_product", as: "fetch_items"
   resources :search_products, only: :index
   resources :categories
-  devise_for :users
+  devise_for :users, controllers: {omniauth_callbacks: "omniauth_callbacks"}
+
+
   resources :products, only: %i(index show) do
     resources :comments
     resources :ratings, only: :create

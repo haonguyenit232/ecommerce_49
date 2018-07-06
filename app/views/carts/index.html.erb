@@ -1,4 +1,4 @@
-<h1><%= t "shopping_cart" %></h1>
+<h1 style=" color: #FF8C00;"><%= t "shopping_cart" %></h1>
 <table id="cart" class="table table-hover table-condensed">
   <thead>
     <tr>
@@ -35,7 +35,7 @@
       <td></td>
       <td>
         <% unless session[:cart].empty? || session[:cart].size == Settings.quantity.zero %>
-          <%= link_to new_order_path(current_user), class: "btn btn-danger" do %>
+          <%= link_to new_order_path(current_user), class: "btn btn-success" do %>
             <%= t ".checkout" %> <i class="fa fa-angle-right"></i>
           <% end %>
         <% end %>

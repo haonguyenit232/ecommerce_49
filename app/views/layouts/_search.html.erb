@@ -1,5 +1,9 @@
-<%= search_form_for @search do |f| %>
-  <%= f.text_field :name_cont,
-    class: "search-query form-control", placeholder: t("search_holder") %>
-  <button type="submit" class="submit-btn"><i class="fa fa-search"></i></button>
+<% if check_active_action(['index']) %>
+   <% if check_active_controller(['products']) &&  %>
+    <%= search_form_for @q do |f| %>
+      <%= f.text_field :name_cont,
+        class: "search-query form-control", placeholder: t("search_holder") %>
+      <button type="submit" class="submit-btn"><i class="fa fa-search"></i></button>
+    <% end %>
+  <% end %>
 <% end %>

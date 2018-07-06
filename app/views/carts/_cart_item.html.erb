@@ -18,7 +18,7 @@
   </td>
   <td class="actions" data-th="" class="unit_price">
     <%= link_to remove_cart_path(product), id: "destroy-product",
-      "data-href": remove_cart_path(product) do %>
+      "data-href": remove_cart_path(product), class: "btn btn-warning btn-sm" do %>
         <i class="fa fa-trash"></i>
     <% end %>
   </td>

@@ -31,8 +31,6 @@ description:
 quantity:
   default: 1
   zero: 0
-rating:
-  point: !ruby/range 1..5
 comment:
   max_length: 500
 statuses:
@@ -40,4 +38,5 @@ statuses:
   in_progress: "in_progress"
   rejected: "rejected"
   approved: "approved"
-
+rating:
+  point: !ruby/range 1..5
