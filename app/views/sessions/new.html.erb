@@ -1,28 +1,30 @@
 <div class="row justify-content-center">
   <div class="col-md-4">
-    <% if logged_in? %>
+    <% if user_signed_in? %>
       <p>
         <%= t "login_notice" %>
         <%= link_to t("home"), root_path %>
       </p>
-    <% else %>
-      <h1 class="text-center login-title"><%= t ".title" %></h1>
-      <%= form_for(:session, url: login_path) do |f| %>
-        <div class="form-group">
-          <%= f.email_field :email, class: "form-control", placeholder: t("users.new.label_email") %>
-        </div>
+      <% else %>
+        <h1 class="text-center login-title"><%= t ".title" %></h1>
+        <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
+          <div class="form-group">
+            <%= f.email_field :email, class: "form-control", placeholder: t("users.new.label_email") %>
+          </div>
 
-        <div class="form-group">
-          <%= f.password_field :password, class: "form-control", placeholder: t("users.new.label_password") %>
-        </div>
+          <div class="form-group">
+            <%= f.password_field :password, class: "form-control", placeholder: t("users.new.label_password") %>
+          </div>
 
-        <%= f.label :remember_me, class: "checkbox inline" do %>
-          <%= f.check_box :remember_me, class: "check-box" %>
-          <span><%= t ".remember_content" %></span>
+          <% if devise_mapping.rememberable? -%>
+            <div class="field">
+              <%= f.check_box :remember_me %>
+              <%= f.label :remember_me %>
+            </div>
+          <% end %>
+          <%= f.submit t(".title"), class: "btn btn-accent btn-lg btn-block" %>
         <% end %>
-        <%= f.submit t("title"), class: "btn btn-accent btn-lg btn-block" %>
-      <% end %>
-      <p class="sign-up"><%= t ".content1" %><%= link_to t(".signup"), signup_path %></p>
     <% end %>
+    <%= render "devise/shared/links" %>
   </div>
 </div>

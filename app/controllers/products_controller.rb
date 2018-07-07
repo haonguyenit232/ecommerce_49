@@ -5,16 +5,17 @@ class ProductsController < ApplicationController
 
 
   def index
-    # @products = Product.order_price
-    #   .paginate page: params[:page], per_page: Settings.product_per_page
+    @q = Product.search(params[:q])
+    @products = @q.result(distinct: true).order_price
+      .paginate page: params[:page], per_page: Settings.product_per_page
     @categories =  Category.includes(:subcategories).order_name
-    @q = Product.ransack(params[:q])
-    @products = @q.result(distinct: true)
+
   end
 
   def show
     @rating = current_user.ratings.find_by product_id: @product.id if
       user_signed_in? && current_user.rating?(@product)
+
   end
 
   def filter_product; end

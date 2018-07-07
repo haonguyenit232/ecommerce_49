@@ -1,28 +1,9 @@
-class SessionsController < ApplicationController
-  def new; end
-
-  def create
-    user = User.find_by(email: params[:session][:email].downcase)
-    if user && user.authenticate(params[:session][:password])
-      log_in user
-      check_admin user
-    else
-      flash.now[:danger] = t "sessions.fail"
-    end
-  end
-
-  def destroy
-    log_out if logged_in?
-    redirect_to root_path
-  end
+class SessionsController < Devise::SessionsController
+  before_action :configure_sign_in_params, only: :create
 
   private
 
-  def check_admin user
-    if user.admin?
-      redirect_to admin_root_path
-    else
-      redirect_to request.referer
-    end
+  def configure_sign_in_params
+    devise_parameter_sanitizer.permit(:sign_in, keys: [:attribute])
   end
 end

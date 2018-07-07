@@ -22,6 +22,13 @@ class ApplicationController < ActionController::Base
 
   private
 
+  def logged_in_user
+    return if user_signed_in?
+    store_location
+    flash[:danger] = t("login_required")
+    redirect_to login_path
+  end
+
   def is_admin
     return if user_signed_in? && current_user.admin?
     redirect_to root_path
@@ -39,6 +46,10 @@ class ApplicationController < ActionController::Base
 
   def load_categories
     @categories = Category.all
+  end
+
+  def store_location
+    session[:forwarding_url] = request.original_url if request.get?
   end
 
   def correct_rating_user

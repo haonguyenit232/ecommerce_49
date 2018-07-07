@@ -37,12 +37,17 @@ module Admin
     end
 
     def destroy
-      if @category.destroy
-        flash[:success] = t ".category_deleted_msg"
+      if @category.products.size > 0
+        flash[:danger] = t("category_delete_err_msg",
+          number: @category.products.size)
       else
-        flash[:danger] = t ".category_delete_err_msg"
+        if @category.destroy
+          flash[:success] = t ".category_deleted_msg"
+        else
+          flash[:danger] = t ".category_delete_err_msg"
+        end
       end
-      redirect_to admin_categories_path
+      redirect_to new_admin_category_path
     end
 
     private

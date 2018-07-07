@@ -3,6 +3,7 @@ class CommentsController < ApplicationController
   before_action :load_comment, only: %i(edit update destroy)
   before_action :load_comment_reply, only: :new
   before_action :authenticate_user!
+  authorize_resource
 
   def new; end
 

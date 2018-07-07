@@ -1,9 +1,0 @@
-<%= provide :page_title, t("search_holder") %>
-<h4>
-  <%= t "search_text1" %>
-  <%= @products.size %>
-  <%= t "search_text2" %>
-</h4>
-<div class="products-wrap d-flex col-md-10">
-  <%= render partial: "products/product", collection: @products, as: :product %>
-</div>

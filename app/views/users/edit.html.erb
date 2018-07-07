@@ -1,8 +1,8 @@
-<h1><%= t ".title" %></h1>
+<h1 style= "text-align: center;"><%= t ".title" %></h1>
 <div class="row justify-content-center">
   <div class="col-md-6">
-    <%= form_for @user do |f| %>
-      <%= render "shared/error_messages", object: f.object %>
+   <%= form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put }) do |f| %>
+      <%= devise_error_messages! %>
 
       <%= f.label :name, t(".label_name") %>
       <%= f.text_field :name, class: "form-control" %>
@@ -12,8 +12,8 @@
 
       <%= f.label :phone, t(".label_phone") %>
       <%= f.text_field :phone, class: "form-control" %>
-
-      <%= f.submit t(".update"), class: "btn btn-primary" %>
+      </br>
+      <%= f.submit t(".update"), class: "btn btn-accent btn-lg btn-block" %>
     <% end %>
   </div>
 </div>

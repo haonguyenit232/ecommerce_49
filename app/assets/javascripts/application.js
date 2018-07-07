@@ -15,6 +15,9 @@
 //= require jquery_ujs
 //= require jquery.ui.all
 //= require popper
+//= require i18n
+//= require i18n.js
+//= require i18n/translations
 //= require bootstrap-sprockets
 //= require main
 //= require turbolinks
