@@ -13,7 +13,6 @@ class CommentsController < ApplicationController
     respond_to do |format|
       if @comment.save
         format.html{redirect_to @product}
-        format.js
       else
         flash[:warning] = t "create_fail"
         format.html{render @product}
@@ -28,7 +27,6 @@ class CommentsController < ApplicationController
     respond_to do |format|
       if @comment.update comment_params
         format.html{redirect_to @product}
-        format.js
       else
         flash[:danger] = t "update_fail"
         format.html{render :edit}

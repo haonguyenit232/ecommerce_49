@@ -2,20 +2,18 @@ class ProductsController < ApplicationController
   before_action :load_product, only: :show
   before_action :load_products, only: :filter_product
   after_action :load_comments, only: :show
-
+  authorize_resource
 
   def index
     @q = Product.search(params[:q])
     @products = @q.result(distinct: true).order_price
       .paginate page: params[:page], per_page: Settings.product_per_page
     @categories =  Category.includes(:subcategories).order_name
-
   end
 
   def show
     @rating = current_user.ratings.find_by product_id: @product.id if
       user_signed_in? && current_user.rating?(@product)
-
   end
 
   def filter_product; end

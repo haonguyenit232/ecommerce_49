@@ -15,7 +15,7 @@ module ProductServices
     end
   end
 end
-# headers: true,  xử lý hàng đầu tiên dưới dạng tiêu đề thay vì hàng dữ liệu.
+# headers: true, hàng đầu tiên của tệp CSV sẽ được coi là hàng tiêu đề thay vì hàng dữ liệu.
 # o day anh viet ham export dung cho tat ca moi thang` .
 # em se truyen` vao` 3 thu'
 # title cua file , ten cac field can in ra (send(head[i])), va array object can in ra
