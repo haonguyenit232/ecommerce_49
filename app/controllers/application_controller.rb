@@ -1,6 +1,5 @@
 class ApplicationController < ActionController::Base
   protect_from_forgery with: :exception
-  before_action :search
 
   include CartsHelper
 
@@ -14,10 +13,6 @@ class ApplicationController < ActionController::Base
 
   def check_valid? id
     redirect_to root_path unless id
-  end
-
-  def search
-    @search = Product.search params[:q]
   end
 
   private

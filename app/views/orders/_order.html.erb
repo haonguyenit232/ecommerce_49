@@ -3,7 +3,7 @@
   <td><%= order.name %></td>
   <td><%= order.address %></td>
   <td><%= order.phone %></td>
-  <td><%= l order.created_at, format: t("date.format.date_time") %></td>
+  <td><%= l order.created_at, format: :dmy_hms_concise %></td>
   <td><%= number_to_currency order.total %></td>
   <td  class="<%= add_cus_css order.status %>">
     <strong>

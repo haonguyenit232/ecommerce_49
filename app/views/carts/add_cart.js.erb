@@ -1,5 +1,18 @@
-$('.shopping-cart').html('<%= escape_javascript(render 'layouts/cart_text') %>');
+/*$('.shopping-cart').html('<%= escape_javascript(render 'layouts/cart_text') %>');
 <% if @product.present? %>
   $('#number_product_cart').html('<%= session[:cart].size %>')
 <% else %>
+<% end %>
+*/
+<% if @product.present? %>
+  $(".cart_link").attr("href", "<%= carts_path %>");
+  swal("<%= t '.alert_success' %>");
+  $("#number_product_cart").html("<%= session[:cart].size %>");
+  $("#number_product_cart").removeClass("hidden");
+<% else %>
+  swal(
+    "<%= t 'shared.error_messages.oops' %>",
+    "<%= t '.alert_fail' %>",
+    "<%= t 'shared.error_messages.error' %>"
+  )
 <% end %>

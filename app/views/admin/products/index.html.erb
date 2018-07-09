@@ -1,14 +1,10 @@
  <% provide :title, t(".page_title")%>
-
  <div class="panel panel-default panel-table">
   <div class="panel-heading">
     <div class="row">
       <div class="col col-xs-6">
         <h3 class="panel-title"><%= t ".panel_title" %></h3>
-         <%= link_to "Export data(.csv)", admin_products_path(format: "csv"), class: "float-right btn btn-primary", style: "margin-left:10px"%>
-         <!--btn click =>  file_field_tag
-         click . file_field_tag chon xong la submit doan onclick ni xoa dc a hay co js mo.
-        cai' nay` anh luoi nua @@!. khi em vao` trang nay` lenh javascrip nay` se tim tat' ca file_fied, neu' co 2 file fied thi` se bi loi-->
+        <%= link_to "Export data(.csv)", admin_products_path(format: "csv"), class: "float-right btn btn-primary", style: "margin-left:10px"%>
         <button id="btn-import-csv" class="btn btn-primary" onclick="javascript:document.getElementById('file_option').click();">Import data(.csv)</button>
         <div class="invisible">
           <%= form_tag(import_admin_products_path, multipart: true) do %>

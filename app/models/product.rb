@@ -12,7 +12,7 @@ class Product < ApplicationRecord
   mount_uploader :image, PictureUploader
   validates :name, presence: true
   validates :price, presence: true
-  validates :quantity, presence: true, length: {minimum: Settings.quantity_min}, length: {maximum: Settings.quantity_max}
+  validates :quantity, presence: true
   validates :description, presence: true, length: {maximum: Settings.description_max}
   validate  :picture_size
 
@@ -36,8 +36,8 @@ class Product < ApplicationRecord
 
   def self.to_csv
     csv = ProductServices::ExportData.new()
-    header = [ "id","name","price","description","quantity","status","image","category_id","created_at","updated_at","rate_average","del_flash"]
-    head = [ "id","name","price","description","quantity","status","image","category_id","created_at","updated_at","rate_average","del_flash"]
+    header = ["id", "name", "price", "description", "quantity", "status", "image", "category_id", "created_at", "updated_at", "rate_average", "del_flash"]
+    head = ["id", "name", "price", "description", "quantity", "status", "image", "category_id", "created_at", "updated_at", "rate_average", "del_flash"]
     csv.export_csv(header,head, Product.all)
   end
 

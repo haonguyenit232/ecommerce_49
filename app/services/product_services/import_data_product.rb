@@ -1,4 +1,4 @@
-require 'csv'
+require "csv"
 module ProductServices
   class ImportDataProduct
     attr_reader :errors
@@ -6,13 +6,13 @@ module ProductServices
       @errors = []
     end
 
-    def call(csv_text)
-      csv_text.force_encoding('ISO-8859-1') # dinh dang csv theo chuan ISO
+    def call csv_text
+      csv_text.force_encoding("ISO-8859-1")
       csv = CSV.parse(csv_text, :headers => true)
-      line_count = 0 # khai bao so' row , row dau` tien =0 , row dau tien la` title
+      line_count = 0
       csv.each do |row|
-        line_count += 1 # bo row 0 , vi` no' k phai data
-        params = row.to_hash # bat dau dem' tu row 1
+        line_count += 1
+        params = row.to_hash
         product = Product.find_by(id: params["id"].to_i)
         name = params["name"]
         price = params["price"]
@@ -33,7 +33,7 @@ module ProductServices
             rate_average: rate_average,
             del_flash: del_flash,
           )
-        @errors << "row #{line_count}:" + m.errors.full_messages.join(', ') if !m.save
+        @errors << "row #{line_count}:" + m.errors.full_messages.join(", ") if !m.save
         else
           if product.update(
             name: name,
@@ -46,7 +46,7 @@ module ProductServices
             del_flash: del_flash,
           )
           else
-            @errors << "row #{line_count}:" + product.errors.full_messages.join(', ')
+            @errors << "row #{line_count}:" + product.errors.full_messages.join(", ")
           end
         end
       end

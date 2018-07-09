@@ -18,6 +18,7 @@ quantity_max: 500
 product_min: 0
 category_max: 30
 user_per_page: 10
+maximum_top_products: 8
 product_per_page: 10
 average_total: 0
 page: 1

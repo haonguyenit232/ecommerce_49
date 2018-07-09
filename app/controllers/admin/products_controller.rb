@@ -9,7 +9,7 @@ module Admin
         .order_price.paginate page: params[:page], per_page: Settings.product_per_page
       respond_to do |format|
         format.html
-        format.csv { send_data Product.to_csv, filename: "products-#{Date.today}.csv" }
+        format.csv{send_data Product.to_csv, filename: "products-#{Date.today}.csv"}
     end
 
     def import
@@ -17,7 +17,7 @@ module Admin
       data = ProductServices::ImportDataProduct.new()
       data.call(csv_text)
       if data.errors.present?
-        redirect_to admin_products_path, :notice => data.errors.join('<br>')
+        redirect_to admin_products_path, :notice => data.errors.join("<br>")
       else
         redirect_to admin_products_path, :notice => "You have successfully imported."
       end

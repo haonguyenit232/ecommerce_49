@@ -5,6 +5,10 @@ en:
   star_2: "2 stars"
   star_1: "1 stars"
   hello: "Hello world"
+  time:
+    formats:
+      date_month_year_concise: "%d-%m-%Y"
+      dmy_hms_concise: "%d-%m-%Y %H:%M:%S"
   name: "Name"
   ago: "ago"
   category_delete_err_msg: "category delete error"
