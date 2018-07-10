@@ -3,7 +3,6 @@ Rails.application.routes.draw do
   get "products/show"
   root "static_pages#home"
   get "/fetch_items", to: "products#filter_product", as: "fetch_items"
-  resources :search_products, only: :index
   resources :categories
   devise_for :users, skip: :sessions,
     controllers: {registrations: "users",
@@ -25,6 +24,7 @@ Rails.application.routes.draw do
 
   namespace :admin do
     root "static_pages#home"
+    resources :users
     resources :categories
     resources :products do
       post 'import', on: :collection
@@ -40,5 +40,3 @@ Rails.application.routes.draw do
   put "orders/:id_order", to: "orders#cancel", as: :cancel
   put "update_hard_cart", to: "carts#update_hard_cart", as: :update_hard_cart
 end
-# o duoi cha a tren user ma
-#??? de o duoi a

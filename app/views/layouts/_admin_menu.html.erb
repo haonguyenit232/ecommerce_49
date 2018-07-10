@@ -5,8 +5,7 @@
       <%= t "users.index.title" %>
     </a>
     <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-      <%= link_to t("users.index.title"), "#", class: "dropdown-item" %>
-      <%= link_to t("admin.add_user"), "#", class: "dropdown-item" %>
+      <%= link_to t("users.index.title"), admin_users_path, class: "dropdown-item" %>
     </div>
   </li>
   <li class="nav-item dropdown">

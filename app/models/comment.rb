@@ -1,4 +1,5 @@
 class Comment < ApplicationRecord
+  acts_as_paranoid
   belongs_to :user
   belongs_to :product
   has_many :reply_comments, class_name: Comment.name, foreign_key: :reply_to, dependent: :destroy

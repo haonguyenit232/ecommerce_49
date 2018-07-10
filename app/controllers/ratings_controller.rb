@@ -8,7 +8,7 @@ class RatingsController < ApplicationController
       @product = Product.find params[:product_id] if @rating.save
     end
     respond_to do |format|
-      format.html {redirect_to request.referrer}
+      format.html{redirect_to request.referrer}
       format.js
     end
   end

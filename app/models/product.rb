@@ -1,10 +1,11 @@
 class Product < ApplicationRecord
+  acts_as_paranoid
   attr_accessor :quantity_in_cart
   belongs_to :category
   has_many :order_details
   has_many :orders, through: :order_details
-  has_many :ratings
-  has_many :comments
+  has_many :ratings, dependent: :destroy
+  has_many :comments, dependent: :destroy
 
   enum del_flash: [:active, :inactive]
   delegate :name, to: :category, prefix: :category
@@ -12,7 +13,7 @@ class Product < ApplicationRecord
   mount_uploader :image, PictureUploader
   validates :name, presence: true
   validates :price, presence: true
-  validates :quantity, presence: true
+  validates :quantity, presence: true, length: {minimum: Settings.quantity_min}
   validates :description, presence: true, length: {maximum: Settings.description_max}
   validate  :picture_size
 
@@ -38,7 +39,7 @@ class Product < ApplicationRecord
     csv = ProductServices::ExportData.new()
     header = ["id", "name", "price", "description", "quantity", "status", "image", "category_id", "created_at", "updated_at", "rate_average", "del_flash"]
     head = ["id", "name", "price", "description", "quantity", "status", "image", "category_id", "created_at", "updated_at", "rate_average", "del_flash"]
-    csv.export_csv(header,head, Product.all)
+    csv.export_csv(header, head, Product.all)
   end
 
   private

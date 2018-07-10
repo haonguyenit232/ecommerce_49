@@ -8,7 +8,7 @@ module ProductServices
 
     def call csv_text
       csv_text.force_encoding("ISO-8859-1")
-      csv = CSV.parse(csv_text, :headers => true)
+      csv = CSV.parse(csv_text, headers: true)
       line_count = 0
       csv.each do |row|
         line_count += 1
@@ -23,28 +23,14 @@ module ProductServices
         rate_average = params["rate_average"]
         del_flash = params["del_flash"]
         if product.nil?
-          m = Product.new(
-            name: name,
-            price: price,
-            description: description,
-            quantity: quantity,
-            status: status,
-            category_id: category_id,
-            rate_average: rate_average,
-            del_flash: del_flash,
-          )
-        @errors << "row #{line_count}:" + m.errors.full_messages.join(", ") if !m.save
+          m = Product.new(name: name, price: price, description: description,
+            quantity: quantity, status: status, category_id: category_id,
+            rate_average: rate_average, del_flash: del_flash)
+          @errors << "row #{line_count}:" + m.errors.full_messages.join(", ") if !m.save
         else
-          if product.update(
-            name: name,
-            price: price,
-            description: description,
-            quantity: quantity,
-            status: status,
-            category_id: category_id,
-            rate_average: rate_average,
-            del_flash: del_flash,
-          )
+          if product.update(name: name, price: price, description: description,
+            quantity: quantity, status: status, category_id: category_id,
+            rate_average: rate_average, del_flash: del_flash)
           else
             @errors << "row #{line_count}:" + product.errors.full_messages.join(", ")
           end

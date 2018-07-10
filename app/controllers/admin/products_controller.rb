@@ -10,6 +10,7 @@ module Admin
       respond_to do |format|
         format.html
         format.csv{send_data Product.to_csv, filename: "products-#{Date.today}.csv"}
+      end
     end
 
     def import
@@ -17,12 +18,11 @@ module Admin
       data = ProductServices::ImportDataProduct.new()
       data.call(csv_text)
       if data.errors.present?
-        redirect_to admin_products_path, :notice => data.errors.join("<br>")
+        flash[:success] = "imported errors"
       else
-        redirect_to admin_products_path, :notice => "You have successfully imported."
+        flash[:info] = "You have successfully imported"
+        redirect_to admin_products_path
       end
-    end
-
     end
 
     def show; end
@@ -58,14 +58,13 @@ module Admin
           number: @product.order_details.size)
       else
         if @product.destroy
-          flash[:success] =  "delete_product_success"
+          flash[:success] = "delete_product_success"
         else
-          flash[:danger] =  "delete_product_fail"
+          flash[:danger] = "delete_product_fail"
         end
       end
       redirect_to admin_products_path
     end
-
 
     private
 

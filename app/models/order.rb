@@ -18,6 +18,4 @@ class Order < ApplicationRecord
   def order_details_present
     errors.add(:order, t("error_message")) if order_details.nil?
   end
-
-
 end

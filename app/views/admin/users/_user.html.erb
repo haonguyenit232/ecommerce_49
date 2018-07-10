@@ -11,12 +11,5 @@
       <span class="status text-danger"><%= t ".inactive" %></span>
     <% end %>
   </td>
-  <td align="center">
-    <% if user.member? %>
-      <%= link_to user, method: :delete,
-        remote: true, data:{confirm: t(".sure")} do %>
-        <i class="fa fa-trash-o" aria-hidden="true"></i>
-      <% end %>
-    <% end %>
-  </td>
 </tr>
+

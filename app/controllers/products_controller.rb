@@ -7,7 +7,7 @@ class ProductsController < ApplicationController
     @q = Product.search(params[:q])
     @products = @q.result(distinct: true).order_price
       .paginate page: params[:page], per_page: Settings.product_per_page
-    @categories =  Category.includes(:subcategories).order_name
+    @categories = Category.includes(:subcategories).order_name
   end
 
   def show
