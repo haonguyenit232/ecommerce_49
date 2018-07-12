@@ -1,5 +1,5 @@
 User.create! id: 1, name:"admin", role: 1, email: "admin@admin.com", password: "123456"
-User.create! id: 2, name:"user", role: 1, email: "user@user.com", password: "123456"
+User.create! id: 2, name:"user", role: 0, email: "user@user.com", password: "123456"
 Category.create! id: 1, name: "T-shirt"
 Category.create! id: 2, name: "Hoodies"
 Category.create! id: 3, name: "Mugs"
