@@ -8,6 +8,15 @@ RSpec.describe User, type: :model do
     it {is_expected.to have_many :suggests}
   end
 
+  describe "db schema" do
+    context "columns" do
+      it { should have_db_column(:email).of_type(:string) }
+      it { should have_db_column(:name).of_type(:string) }
+      it { should have_db_column(:phone).of_type(:string) }
+      it { should have_db_column(:address).of_type(:string) }
+    end
+  end
+
   describe "validates" do
     context "email" do
       it "can not be blank" do
