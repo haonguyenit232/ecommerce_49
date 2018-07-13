@@ -17,6 +17,7 @@ gem "jquery-ui-sass-rails"
 gem "mysql2", ">= 0.3.18", "< 0.6.0"
 gem "puma", "~> 3.7"
 gem "rubocop", "~> 0.49.1", require: false
+gem "faker", "1.8.7"
 gem "sass-rails", "~> 5.0"
 gem "uglifier", ">= 1.3.0"
 gem "carrierwave", "1.2.2"
@@ -34,13 +35,18 @@ gem "rails-ujs"
 
 group :development, :test do
   gem "byebug", platforms: [:mri, :mingw, :x64_mingw]
-  gem "capybara", "~> 2.13"
-  gem "rspec-rails", "~> 3.7"
   gem "selenium-webdriver"
+  gem "rspec-rails", "~> 3.7"
+  gem "factory_bot_rails"
 end
 
 group :test do
+  gem "capybara"
+  gem "database_cleaner"
+  gem "launchy"
+  gem "selenium-webdriver"
   gem "shoulda-matchers", "~> 3.1"
+  gem "rails-controller-testing"
 end
 
 group :development do

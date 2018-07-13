@@ -4,6 +4,8 @@ phone_min: 10
 phone_max: 15
 pass_min: 6
 user_per_page: 10
+not_to_allow_less_1: 0
+min_pass_length: 6
 paginate:
   per_page: 9
   comment_perpage: 5
@@ -21,6 +23,7 @@ user_per_page: 10
 maximum_top_products: 8
 product_per_page: 10
 average_total: 0
+min_quantity: 1
 page: 1
 max_image_size: 1
 cart_size: 1

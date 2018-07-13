@@ -13,7 +13,9 @@ class Product < ApplicationRecord
   mount_uploader :image, PictureUploader
   validates :name, presence: true
   validates :price, presence: true
-  validates :quantity, presence: true, length: {minimum: Settings.quantity_min}
+  validates :quantity, presence: true
+  validates :quantity, numericality: {greater_than_or_equal_to: Settings.min_quantity,
+    only_integer: true}
   validates :description, presence: true, length: {maximum: Settings.description_max}
   validate  :picture_size
 

@@ -10,6 +10,9 @@ class User < ApplicationRecord
   has_many :comments
   has_many :suggests
 
+  validates :name, presence: true, uniqueness: true
+  validates :email, uniqueness: true, presence: true
+
   enum role: %i(member admin)
   scope :newest, ->{order created_at: :desc}
 

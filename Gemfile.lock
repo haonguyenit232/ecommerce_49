@@ -75,6 +75,7 @@ GEM
       deep_merge (~> 1.2.1)
       dry-validation (>= 0.10.4)
     crass (1.0.4)
+    database_cleaner (1.7.0)
     deep_merge (1.2.1)
     devise (4.4.3)
       bcrypt (~> 3.0)
@@ -112,6 +113,13 @@ GEM
       dry-types (~> 0.13.1)
     erubi (1.7.1)
     execjs (2.7.0)
+    factory_bot (4.10.0)
+      activesupport (>= 3.0.0)
+    factory_bot_rails (4.10.0)
+      factory_bot (~> 4.10.0)
+      railties (>= 3.0.0)
+    faker (1.8.7)
+      i18n (>= 0.7)
     faraday (0.12.2)
       multipart-post (>= 1.2, < 3)
     ffi (1.9.25)
@@ -141,6 +149,8 @@ GEM
       jquery-ui-rails (= 4.0.3)
       railties (>= 3.1.0)
     jwt (1.5.6)
+    launchy (2.4.3)
+      addressable (~> 2.3)
     listen (3.1.5)
       rb-fsevent (~> 0.9, >= 0.9.4)
       rb-inotify (~> 0.9, >= 0.9.7)
@@ -211,6 +221,10 @@ GEM
       bundler (>= 1.3.0)
       railties (= 5.1.6)
       sprockets-rails (>= 2.0.0)
+    rails-controller-testing (1.0.2)
+      actionpack (~> 5.x, >= 5.0.1)
+      actionview (~> 5.x, >= 5.0.1)
+      activesupport (~> 5.x)
     rails-dom-testing (2.0.3)
       activesupport (>= 4.2.0)
       nokogiri (>= 1.6)
@@ -328,16 +342,20 @@ DEPENDENCIES
   bootstrap-will_paginate (= 1.0.0)
   byebug
   cancancan (~> 2.0)
-  capybara (~> 2.13)
+  capybara
   carrierwave (= 1.2.2)
   config
+  database_cleaner
   devise
+  factory_bot_rails
+  faker (= 1.8.7)
   figaro
   font-awesome-rails
   i18n-js
   jquery-rails
   jquery-turbolinks
   jquery-ui-sass-rails
+  launchy
   listen (>= 3.0.5, < 3.2)
   mini_magick (= 4.7.0)
   mysql2 (>= 0.3.18, < 0.6.0)
@@ -346,6 +364,7 @@ DEPENDENCIES
   pry-rails
   puma (~> 3.7)
   rails (~> 5.1.6)
+  rails-controller-testing
   rails-ujs
   ransack
   rspec-rails (~> 3.7)
